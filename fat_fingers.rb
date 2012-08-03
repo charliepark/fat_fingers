@@ -104,27 +104,13 @@ class StringTest < MiniTest::Unit::TestCase
       "test@comacast.net",
       "test@comcat.net"
       ]
-
   end
 
   def test_that_emails_get_fixed
-    @bad_gmail.each do |email|
-      assert_equal @good_gmail, email.clean_up_typoed_email
-    end
-    @bad_intl_gmail.each do |email|
-      assert_equal @good_intl_gmail, email.clean_up_typoed_email
-    end
-    @bad_yahoo.each do |email|
-      assert_equal @good_yahoo, email.clean_up_typoed_email
-    end
-    @bad_net.each do |email|
-      assert_equal @good_net, email.clean_up_typoed_email
-    end
-    @bad_org.each do |email|
-      assert_equal @good_org, email.clean_up_typoed_email
-    end
-    @bad_comcast.each do |email|
-      assert_equal @good_comcast, email.clean_up_typoed_email
+    ["gmail", "intl_gmail", "yahoo", "net", "org", "comcast"].each do |test|
+      eval("@bad_"+test).each do |email|
+        assert_equal eval("@good_"+test), email.clean_up_typoed_email
+      end
     end
   end
 

@@ -16,7 +16,7 @@ end
 # @user.email = params[:user][:email].downcase.clean_up_typoed_email
 
 
-# Below is the unit test for Scrubby.
+# Below is the unit test for Fat Fingers.
 # Simply run 'ruby fat_fingers.rb' in your Terminal to see the test results.
 
 require 'minitest/autorun'

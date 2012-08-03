@@ -7,7 +7,7 @@ class String
     gsub(/\.c?m?o?m?$/, ".com")
     .gsub(/\.n?t?e?t?$/, ".net")
     .gsub(/\.o?g?r?g?$/, ".org")
-    .gsub("comcat.net","comcast.net")
+    .gsub(/@coma?cas?t.net/,"@comcast.net")
     .gsub(/@g([m]*?[a]*?[m]*?[l]*?[i]*?[l]*?)\./,"@gmail.")
     .gsub(/@ya?h[o]*\./,"@yahoo.")
   end
@@ -99,6 +99,12 @@ class StringTest < MiniTest::Unit::TestCase
       "test@something.ogr"
       ]
 
+    @good_comcast = "test@comcast.net"
+    @bad_comcast = [
+      "test@comacast.net",
+      "test@comcat.net"
+      ]
+
   end
 
   def test_that_emails_get_fixed
@@ -116,6 +122,9 @@ class StringTest < MiniTest::Unit::TestCase
     end
     @bad_org.each do |email|
       assert_equal @good_org, email.clean_up_typoed_email
+    end
+    @bad_comcast.each do |email|
+      assert_equal @good_comcast, email.clean_up_typoed_email
     end
   end
 

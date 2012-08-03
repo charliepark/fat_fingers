@@ -2,10 +2,6 @@
 # If using Rails, create a file, "string.rb"
 # in your config/initializers/ directory and put these lines in it.
 
-# In your users_controller.rb file, in the 'create' method,
-# clean up e-mails by doing something like this before saving the user:
-# @user.email = params[:user][:email].downcase.clean_up_typoed_email
-
 class String
   def clean_up_typoed_email
     gsub(/\.cm?o?$/, ".com")
@@ -14,6 +10,11 @@ class String
     .gsub(/@ya?h[o]*\./,"@yahoo.")
   end
 end
+
+# In your users_controller.rb file, in the 'create' method,
+# clean up e-mails by doing something like this before saving the user:
+# @user.email = params[:user][:email].downcase.clean_up_typoed_email
+
 
 # Below is the unit test for Scrubby.
 # Simply run 'ruby fat_fingers.rb' in your Terminal to see the test results.

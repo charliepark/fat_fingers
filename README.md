@@ -19,6 +19,11 @@ All you need to do is attach that method to the user's e-mail address before you
 There are some more instructions in the file itself, but it's really straightforward.
 
 
+### So this isn't a library / plugin?
+
+Nope! It's just a regex. Eight lines of code, and we tell you where you can stick &rsquo;em!
+
+
 ### Aren't we disenfranchising users with this?
 
 There's a similar tool, called [Mailcheck.js](https://github.com/Kicksend/mailcheck). It offers suggestions to the user, to check the e-mail they entered to make sure it's legit.

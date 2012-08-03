@@ -1,4 +1,4 @@
-# Just put the following lines into your app.
+# Just put the following 8 lines into your app.
 # If using Rails, create a file, "string.rb"
 # in your config/initializers/ directory and put these lines in it.
 

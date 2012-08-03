@@ -33,6 +33,11 @@ Fat Fingers is different, in that it does the work silently, without checking wi
 Perhaps you want to roll with their approach. That's cool, and you'd be in good company. For my own projects, I'd rather not bother the user with something that's obviously wrong, if I can fix it on my own.
 
 
+### A quick note for users running this on Ruby < 1.9
+
+Our multi-line chaining in this regex features the dots at the beginning of each line. Just move them to the end of the previous line if you're on Ruby 1.8.x.
+
+
 ### Testing!
 
 Fat Fingers has its own tests.

@@ -9,7 +9,7 @@ class String
     .gsub(/\.o?g?r?g?$/, ".org")
     .gsub(/@coma?cas?t.net/,"@comcast.net")
     .gsub(/@g([m]*?[a]*?[m]*?[l]*?[i]*?[l]*?)\./,"@gmail.")
-    .gsub(/@ya?h[o]*\./,"@yahoo.")
+    .gsub(/@ya?h?[o]*\./,"@yahoo.")
   end
 end
 
@@ -71,15 +71,24 @@ class StringTest < MiniTest::Unit::TestCase
     @bad_yahoo = [
       "test@yaho.com",
       "test@yahooo.com",
-
-      "test@yaho.cmo",
-      "test@yahooo.cmo",
+      "test@yho.com",
+      "test@yhooo.com",
+      "test@yao.com",
+      "test@yaooo.com",
 
       "test@yaho.cm",
       "test@yahooo.cm",
+      "test@yho.cm",
+      "test@yhooo.cm",
+      "test@yao.cm",
+      "test@yaooo.cm",
 
       "test@yaho.om",
-      "test@yahooo.om"
+      "test@yahooo.om",
+      "test@yho.om",
+      "test@yhooo.om",
+      "test@yao.om",
+      "test@yaooo.om"
       ]
 
     @good_net = "test@something.net"

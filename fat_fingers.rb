@@ -123,4 +123,10 @@ class StringTest < MiniTest::Unit::TestCase
     end
   end
 
+  def test_that_good_emails_do_not_get_broken
+    ["gmail", "intl_gmail", "yahoo", "net", "org", "comcast"].each do |test|
+      assert_equal eval("@good_"+test), eval("@good_"+test).clean_up_typoed_email
+    end
+  end
+
 end

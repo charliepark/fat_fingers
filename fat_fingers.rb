@@ -4,12 +4,14 @@
 
 class String
   def clean_up_typoed_email
-    gsub(/\.c?m?o?m?$/, ".com")
+    gsub(/c\.om$/, ".com")
+    .gsub(/n\.et$/, ".net")
+    .gsub(/\.c?m?o?m?$/, ".com")
     .gsub(/\.n?t?e?t?$/, ".net")
     .gsub(/\.og?r?g?$/, ".org") #require the o, to not false-positive .gr e-mails
-    .gsub(/@coma?cas?tn?.net/,"@comcast.net")
-    .gsub(/@g([m]*?[a]*?[m]*?[l]*?[i]*?[l]*?c?)\./,"@gmail.")
-    .gsub(/@ya?h?[o]*c?\./,"@yahoo.")
+    .gsub(/@coma?cas?t.net/,"@comcast.net")
+    .gsub(/@g([m]*?[a]*?[m]*?[l]*?[i]*?[l]*?)\./,"@gmail.")
+    .gsub(/@ya?h?[o]*\./,"@yahoo.")
   end
 end
 

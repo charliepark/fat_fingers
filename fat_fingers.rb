@@ -7,9 +7,9 @@ class String
     gsub(/\.c?m?o?m?$/, ".com")
     .gsub(/\.n?t?e?t?$/, ".net")
     .gsub(/\.og?r?g?$/, ".org") #require the o, to not false-positive .gr e-mails
-    .gsub(/@coma?cas?t.net/,"@comcast.net")
-    .gsub(/@g([m]*?[a]*?[m]*?[l]*?[i]*?[l]*?)\./,"@gmail.")
-    .gsub(/@ya?h?[o]*\./,"@yahoo.")
+    .gsub(/@coma?cas?tn?.net/,"@comcast.net")
+    .gsub(/@g([m]*?[a]*?[m]*?[l]*?[i]*?[l]*?c?)\./,"@gmail.")
+    .gsub(/@ya?h?[o]*c?\./,"@yahoo.")
   end
 end
 
@@ -33,6 +33,7 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmali.com",
       "test@gmaill.com",
       "test@gamil.com",
+      "test@gmailc.om",
 
       "test@gmai.cmo",
       "test@gmal.cmo",
@@ -75,6 +76,7 @@ class StringTest < MiniTest::Unit::TestCase
       "test@yhooo.com",
       "test@yao.com",
       "test@yaooo.com",
+      "test@yahooc.om",
 
       "test@yaho.cm",
       "test@yahooo.cm",
@@ -103,14 +105,13 @@ class StringTest < MiniTest::Unit::TestCase
     @bad_org = [
       "test@something.or",
       "test@something.og",
-      "test@something.gr",
-      "test@something.rg",
       "test@something.ogr"
       ]
 
     @good_comcast = "test@comcast.net"
     @bad_comcast = [
       "test@comacast.net",
+      "test@comcastn.et",
       "test@comcat.net"
       ]
   end

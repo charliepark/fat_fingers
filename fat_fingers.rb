@@ -6,7 +6,7 @@ class String
   def clean_up_typoed_email
     gsub(/c\.om$/, ".com")
     .gsub(/n\.et$/, ".net")
-    .gsub(/\.c?m?o?m?$/, ".com")
+    .gsub(/\.c?m*o*m?$/, ".com")
     .gsub(/\.n?t?e?t?$/, ".net")
     .gsub(/\.og?r?g?$/, ".org") #require the o, to not false-positive .gr e-mails
     .gsub(/@coma?cas?t.net/,"@comcast.net")
@@ -36,6 +36,7 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmaill.com",
       "test@gamil.com",
       "test@gmailc.om",
+      "test@gmail.coom",
 
       "test@gmai.cmo",
       "test@gmal.cmo",

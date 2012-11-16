@@ -11,7 +11,7 @@ class String
     .gsub(/\.og?r?g?$/, ".org") #require the o, to not false-positive .gr e-mails
     .gsub(/@coma?cas?t.net/,"@comcast.net")
     .gsub(/@g([m]*?[a]*?[m]*?[l]*?[i]*?[l]*?)\./,"@gmail.")
-    .gsub(/@ya?h?[o]*\./,"@yahoo.")
+    .gsub(/@ya?h?a?[o]*\./,"@yahoo.")
   end
 end
 
@@ -75,6 +75,8 @@ class StringTest < MiniTest::Unit::TestCase
     @bad_yahoo = [
       "test@yaho.com",
       "test@yahooo.com",
+      "test@yhao.com",
+      "test@yhaoo.com",
       "test@yho.com",
       "test@yhooo.com",
       "test@yao.com",
@@ -83,6 +85,8 @@ class StringTest < MiniTest::Unit::TestCase
 
       "test@yaho.cm",
       "test@yahooo.cm",
+      "test@yhao.cm",
+      "test@yhaoo.cm",
       "test@yho.cm",
       "test@yhooo.cm",
       "test@yao.cm",
@@ -90,6 +94,8 @@ class StringTest < MiniTest::Unit::TestCase
 
       "test@yaho.om",
       "test@yahooo.om",
+      "test@yhao.om",
+      "test@yhaoo.om",
       "test@yho.om",
       "test@yhooo.om",
       "test@yao.om",

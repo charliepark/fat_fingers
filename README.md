@@ -49,6 +49,10 @@ Fat Fingers has its own tests.
 
 Once you've cloned it to your system, just run `ruby fat_fingers.rb` and you'll see the output of the tests.
 
+### Code Climate!
+
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/charliepark/fat_fingers)
+
 ### Make it better!
 
 I'd love to hear suggestions, critiques, and improvements. Feel free to fork it, ask me to pull in changes, and so on. I'd also love any test improvements.

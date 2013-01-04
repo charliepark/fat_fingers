@@ -38,6 +38,13 @@ Fat Fingers is different, in that it does the work silently, without checking wi
 Perhaps you want to roll with their approach. That's cool, and you'd be in good company. For my own projects, I'd rather not bother the user with something that's obviously wrong, if I can fix it on my own.
 
 
+### What failing e-mails does Fat Fingers catch? ###
+
+It's a moderately-long list, mostly centered around the kinds of e-mail providers that have lots of users (and lots of users prone to typo their e-mail providers' names). Your '*Yaho*'s, your '*Hotmali*'s, your '*Gmial*'s. That sort of thing.
+
+To see the full list of what Fat Fingers will catch, check out the tests (around line 29 of [the code](https://github.com/charliepark/fat_fingers/blob/master/fat_fingers.rb)).
+
+
 ### A quick note for users running this on Ruby < 1.9
 
 Our multi-line chaining in this regex features the dots at the beginning of each line. Just move them to the end of the previous line if you're on Ruby 1.8.x.

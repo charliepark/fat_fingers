@@ -40,7 +40,7 @@ Perhaps you want to roll with their approach. That's cool, and you'd be in good 
 
 ### What failing e-mails does Fat Fingers catch? ###
 
-It's a moderately-long list, mostly centered around the kinds of e-mail providers that have lots of users (and lots of users prone to typo their e-mail providers' names). Your '*Yaho*'s, your '*Hotmali*'s, your '*Gmial*'s. That sort of thing.
+It's a moderately-long list, mostly centered around the kinds of e-mail providers that have lots of users (and lots of users prone to typo their e-mail providers' names). Your 'Yaho's, your 'Hotmali's, your 'Gmial's. That sort of thing.
 
 To see the full list of what Fat Fingers will catch, check out the tests (around line 29 of [the code](https://github.com/charliepark/fat_fingers/blob/master/fat_fingers.rb)).
 

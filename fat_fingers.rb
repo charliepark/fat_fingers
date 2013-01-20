@@ -113,7 +113,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@something.nt",
       "test@something.ne",
       "test@something.et",
-      "test@something.nte"
+      "test@something.nte",
+      "test@something.nett"
       ]
 
     @good_org = "test@something.org"
@@ -128,8 +129,7 @@ class StringTest < MiniTest::Unit::TestCase
     @bad_comcast = [
       "test@comacast.net",
       "test@comcastn.et",
-      "test@comcat.net",
-      "test@comcat.nett"
+      "test@comcat.net"
       ]
 
     @good_sbcglobal = "test@sbcglobal.net"

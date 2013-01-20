@@ -138,8 +138,12 @@ class StringTest < MiniTest::Unit::TestCase
       ]
   end
 
+  def cases
+    ["gmail", "intl_gmail", "yahoo", "net", "org", "comcast", "sbcglobal"]
+  end
+
   def test_that_emails_get_fixed
-    ["gmail", "intl_gmail", "yahoo", "net", "org", "comcast", "sbcglobal"].each do |test|
+    cases.each do |test|
       eval("@bad_"+test).each do |email|
         assert_equal eval("@good_"+test), email.clean_up_typoed_email
       end
@@ -147,7 +151,7 @@ class StringTest < MiniTest::Unit::TestCase
   end
 
   def test_that_good_emails_do_not_get_broken
-    ["gmail", "intl_gmail", "yahoo", "net", "org", "comcast", "sbcglobal"].each do |test|
+    cases.each do |test|
       assert_equal eval("@good_"+test), eval("@good_"+test).clean_up_typoed_email
     end
   end

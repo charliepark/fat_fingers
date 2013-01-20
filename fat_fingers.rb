@@ -6,9 +6,9 @@ class String
   def clean_up_typoed_email
     gsub(/c\.om$/, ".com")
     .gsub(/n\.et$/, ".net")
-    .gsub(/\.c?m*o*m?$/, ".com")
-    .gsub(/\.n?t?e?t?$/, ".net")
-    .gsub(/\.og?r?g?$/, ".org") #require the o, to not false-positive .gr e-mails
+    .gsub(/\.c?m*o*m?m?$/, ".com")
+    .gsub(/\.n?t?e?t?t?$/, ".net")
+    .gsub(/\.og?r?g?g?$/, ".org") #require the o, to not false-positive .gr e-mails
     .gsub(/@coma?cas?t.net/,"@comcast.net")
     .gsub(/@sbcgloba.net/, "@sbcglobal.net")
     .gsub(/@g([m]*?[a]*?[m]*?[l]*?[i]*?[l]*?)\./,"@gmail.")
@@ -38,6 +38,7 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gamil.com",
       "test@gmailc.om",
       "test@gmail.coom",
+      "test@gmail.comm",
 
       "test@gmai.cmo",
       "test@gmal.cmo",
@@ -119,14 +120,16 @@ class StringTest < MiniTest::Unit::TestCase
     @bad_org = [
       "test@something.or",
       "test@something.og",
-      "test@something.ogr"
+      "test@something.ogr",
+      "test@something.orgg"
       ]
 
     @good_comcast = "test@comcast.net"
     @bad_comcast = [
       "test@comacast.net",
       "test@comcastn.et",
-      "test@comcat.net"
+      "test@comcat.net",
+      "test@comcat.nett"
       ]
 
     @good_sbcglobal = "test@sbcglobal.net"

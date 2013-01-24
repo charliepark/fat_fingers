@@ -6,7 +6,7 @@ class String
   def clean_up_typoed_email
     gsub(/c\.om$/, ".com")
     .gsub(/n\.et$/, ".net")
-    .gsub(/\.c?o?c?p?x?v?m*o*m?m?j?n?\.?,?\'?\"?$/, ".com")
+    .gsub(/\.c?o?c?p?x?v?m*o*i?l?n?m?m?j?n?\.?,?\'?\"?\\?$/, ".com")
     .gsub(/\.n?t?e?t?t?$/, ".net")
     .gsub(/\.og?r?g?g?$/, ".org") #require the o, to not false-positive .gr e-mails
     .gsub(/@coma?cas?t.net/,"@comcast.net")
@@ -61,19 +61,24 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmaill.om",
       "test@gamil.om",
 
-      "test@gmail.ocm", 
-      "test@gmail.con", 
-      "test@gmail.cmo", 
+      "test@gmail.ocm",
+      "test@gmail.con",
+      "test@gmail.cmo",
       "test@gmail.copm", 
-      "test@gmail.xom", 
-      "test@gmail.vom", 
-      "test@gmail.comn", 
+      "test@gmail.xom",
+      "test@gmail.com,",
+      "test@gmail.com.",
+      "test@gmail.vom",
+      "test@gmail.comn",
       "test@gmail.com'",
-      "test@gmail.com\"", 
-      "test@gmail.comj", 
-      "test@gmail.coom", 
-      "test@gmail.com.", 
-      "test@gmail.com,"
+      "test@gmail.com\"",
+      "test@gmail.com\\",
+      "test@gmail.comj",
+      "test@gmail.coim",
+      "test@gmail.cpm",
+      "test@gmail.colm",
+      "test@gmail.conm",
+      "test@gmail.coom"
       ]
 
     @good_intl_gmail = "test@gmail.co.uk"

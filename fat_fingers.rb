@@ -1,10 +1,9 @@
 # Just put the following method into your app.
 # If using Rails, create a file, "string.rb" in your
-# config/initializers/ directory and put these 14 lines
+# config/initializers/ directory and put these 15 lines
 # (including the "class String" and "end" lines) in it.
 
 class String
-
   def clean_up_typoed_email
     downcase.gsub(/c\.om$/, ".com")
     .gsub(/n\.et$/, ".net")

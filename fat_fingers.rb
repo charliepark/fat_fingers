@@ -6,7 +6,7 @@
 class String
 
   def clean_up_typoed_email
-    gsub(/c\.om$/, ".com")
+    downcase.gsub(/c\.om$/, ".com")
     .gsub(/n\.et$/, ".net")
     .gsub(/(\.|\,|\'|\"|\\)*$/, "")
     .gsub(/\.c*(c|i|l|m|n|o|p)*m+(n|o|j)*$/,".com")
@@ -22,7 +22,7 @@ end
 
 # In your users_controller.rb file, in the 'create' method,
 # clean up e-mails by doing something like this before saving the user:
-# @user.email = params[:user][:email].downcase.clean_up_typoed_email
+# @user.email = params[:user][:email].clean_up_typoed_email
 
 
 # Below are the unit tests for Fat Fingers.
@@ -82,7 +82,9 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmail.cpm",
       "test@gmail.colm",
       "test@gmail.conm",
-      "test@gmail.coom"
+      "test@gmail.coom",
+
+      "TEST@GMAIL.COM"
       ]
 
     @good_intl_gmail = "test@gmail.co.uk"

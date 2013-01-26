@@ -1,6 +1,7 @@
-# Just put the following 8 lines into your app.
-# If using Rails, create a file, "string.rb"
-# in your config/initializers/ directory and put these lines in it.
+# Just put the following method into your app.
+# If using Rails, create a file, "string.rb" in your
+# config/initializers/ directory and put these 14 lines
+# (including the "class String" and "end" lines) in it.
 
 class String
 

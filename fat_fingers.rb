@@ -3,16 +3,19 @@
 # in your config/initializers/ directory and put these lines in it.
 
 class String
+
   def clean_up_typoed_email
     gsub(/c\.om$/, ".com")
     .gsub(/n\.et$/, ".net")
-    .gsub(/\.c?o?c?p?x?v?m*o*i?l?n?m?m?j?n?\.?,?\'?\"?\\?$/, ".com")
-    .gsub(/\.n?t?e?t?t?$/, ".net")
-    .gsub(/\.og?r?g?g?$/, ".org") #require the o, to not false-positive .gr e-mails
-    .gsub(/@coma?cas?t.net/,"@comcast.net")
+    .gsub(/(\.|\,|\'|\"|\\)*$/, "")
+    .gsub(/\.c*(c|i|l|m|n|o|p)*m+(n|o|j)*$/,".com")
+    .gsub(/\.(c|v|x)o+(m|n)$/,".com")
+    .gsub(/\.n*t*e*t*$/, ".net")
+    .gsub(/\.og*r*g*$/, ".org") #require the o, to not false-positive .gr e-mails
+    .gsub(/@coma*cas*t.net/,"@comcast.net")
     .gsub(/@sbcgloba.net/, "@sbcglobal.net")
-    .gsub(/@g([m]*?[a]*?[m]*?[l]*?[i]*?[l]*?)\./,"@gmail.")
-    .gsub(/@y?a?h?a?[o]*\./,"@yahoo.")
+    .gsub(/@gm*a*m*l*i*l*\./,"@gmail.")
+    .gsub(/@y*a*h*a*o*\./,"@yahoo.")
   end
 end
 
@@ -21,7 +24,7 @@ end
 # @user.email = params[:user][:email].downcase.clean_up_typoed_email
 
 
-# Below is the unit test for Fat Fingers.
+# Below are the unit tests for Fat Fingers.
 # Simply run 'ruby fat_fingers.rb' in your Terminal to see the test results.
 
 require 'minitest/autorun'
@@ -155,10 +158,19 @@ class StringTest < MiniTest::Unit::TestCase
     @bad_sbcglobal = [
       "test@sbcgloba.net"
       ]
+
+    @good_tld_cn = "test@something.cn"
+    @bad_tld_cn = ["test@something.cn"]
+
+    @good_tld_co = "test@something.co"
+    @bad_tld_co = ["test@something.co"]
+
+    @good_tld_gr = "test@something.gr"
+    @bad_tld_gr = ["test@something.gr"]
   end
 
   def cases
-    ["gmail", "intl_gmail", "yahoo", "net", "org", "comcast", "sbcglobal"]
+    ["gmail", "intl_gmail", "yahoo", "net", "org", "comcast", "sbcglobal", "tld_cn", "tld_co", "tld_gr"]
   end
 
   def test_that_emails_get_fixed

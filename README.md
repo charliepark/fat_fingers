@@ -37,7 +37,7 @@ Fat Fingers is different, in that it does the work silently, without checking wi
 
 Perhaps you want to roll with their approach. That's cool, and you'd be in good company. For my own projects, I'd rather not bother the user with something that's obviously wrong, if I can fix it on my own.
 
-Put in other words, **there's absolutely no reason why a webapp should allow a user to register with the e-mail "@gmali.com", or "@gmail.cm", or anything else that's clearly wrong.** And we shouldn't add friction to the signup process by asking them "are you sure you spelled your e-mail correctly?" (especially since they'll probably just say "of *course* I spelled my e-mail correctly", without actually checking it).
+Put in other words, **there's absolutely no reason why a webapp should allow a user to register with the e-mail "@gmali.com", or "@gmail.ocm", or anything else that's clearly wrong.** And we shouldn't add friction to the signup process by asking them "are you sure you spelled your e-mail correctly?" (especially since they'll probably just say "of *course* I spelled my e-mail correctly", without actually checking it).
 
 
 ### Are there tests for this code? How can I know it won't false-positive something legitimate, like "@something.co"? ###

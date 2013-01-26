@@ -21,7 +21,7 @@ There are some more instructions in the file itself, but it's really straightfor
 
 ### So this isn't a library / plugin?
 
-Nope! It's just a regex. Eleven lines of code, and we tell you where you can stick &rsquo;em!
+Nope! It's just a regex. Thirteen or so lines of code, and we tell you where you can stick &rsquo;em!
 
 
 ### Does a mere regex deserve its own name?

@@ -8,7 +8,7 @@ class String
     downcase.gsub(/c\.om$/, ".com")
     .gsub(/n\.et$/, ".net")
     .gsub(/(\.|\,|\'|\"|\\)*$/, "")
-    .gsub(/\.c*(c|i|l|m|n|o|p)*m+(n|o|j)*$/,".com")
+    .gsub(/\.c*(c|i|l|m|n|o|p)*m+(j|n|o)*$/,".com")
     .gsub(/\.(c|v|x)o+(m|n)$/,".com")
     .gsub(/\.n*t*e*t*$/, ".net")
     .gsub(/\.og*r*g*$/, ".org") #require the o, to not false-positive .gr e-mails

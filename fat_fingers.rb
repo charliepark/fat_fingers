@@ -16,6 +16,7 @@ class String
     .gsub(/@sbcgloba.net/, "@sbcglobal.net")
     .gsub(/@gm*i*a*m*l*i*l*\./,"@gmail.")
     .gsub(/@y*a*h*a*o*\./,"@yahoo.")
+    .gsub(/@h(o|p)tm*i*a*m*l*i*l*\./,"@hotmail.")
   end
 end
 
@@ -35,6 +36,7 @@ class StringTest < MiniTest::Unit::TestCase
     @bad_gmail = [
       "test@gmai.com",
       "test@gmal.com",
+      "test@gmaal.com",
       "test@gmil.com",
       "test@gmial.com",
       "test@gmali.com",
@@ -136,6 +138,12 @@ class StringTest < MiniTest::Unit::TestCase
       "test@yaooo.om"
       ]
 
+    @good_hotmail = "test@hotmail.com"
+    @bad_hotmail = [
+      "test@hotmaill.com",
+      "test@hptmail.com",
+      ]
+
     @good_net = "test@something.net"
     @bad_net = [
       "test@something.nt",
@@ -176,7 +184,7 @@ class StringTest < MiniTest::Unit::TestCase
   end
 
   def cases
-    ["gmail", "intl_gmail", "yahoo", "net", "org", "comcast", "sbcglobal", "tld_cn", "tld_co", "tld_gr"]
+    ["gmail", "intl_gmail", "yahoo", "hotmail", "net", "org", "comcast", "sbcglobal", "tld_cn", "tld_co", "tld_gr"]
   end
 
   def test_that_emails_get_fixed

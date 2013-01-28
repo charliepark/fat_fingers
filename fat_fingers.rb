@@ -4,6 +4,19 @@
 # (including the "class String" and "end" lines) in it.
 
 class String
+
+  # Internal: Check a string for misspelled TLDs and
+  #   misspelled domains from popular e-mail providers.
+  #
+  # Examples
+  #
+  #   "joe@gmail.cmo".clean_up_typoed_email
+  #   # => "joe@gmail.com"
+  #
+  #   "joe@yaho.com".clean_up_typoed_email
+  #   # => "joe@yahoo.com"
+  #
+  # Returns the cleaned String.
   def clean_up_typoed_email
     downcase.gsub(/c\.om$/, ".com")
     .gsub(/n\.et$/, ".net")
@@ -18,6 +31,7 @@ class String
     .gsub(/@y*a*h*a*o*\./,"@yahoo.")
     .gsub(/@h(o|p)*to*m*i*a*l*i*l*a*\./,"@hotmail.")
   end
+
 end
 
 # In your users_controller.rb file, in the 'create' method,

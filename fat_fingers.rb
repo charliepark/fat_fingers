@@ -20,8 +20,9 @@ class String
   def clean_up_typoed_email
     downcase.gsub(/c\.om$/, ".com")
     .gsub(/n\.et$/, ".net")
-    .gsub(/(\.|\,|\'|\"|\\)*$/, "")
     .gsub(/\.com(.)*$/, ".com")
+    .gsub(/\.co[^op]$/, ".com")
+    .gsub(/(\.|\,|\'|\"|\\)*$/, "")
     .gsub(/\.c*(c|i|l|m|n|o|p)*m+o*$/,".com")
     .gsub(/\.(c|v|x)o+(m|n)$/,".com")
     .gsub(/\.n*t*e*t*$/, ".net")
@@ -58,10 +59,13 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmila.com",
       "test@gmaill.com",
       "test@gamil.com",
+
       "test@gmailc.om",
       "test@gmail.coom",
       "test@gmail.comm",
       "test@gmail.comme",
+      "test@gmail.co,",
+      "test@gmail.co<",
 
       "test@gmai.cmo",
       "test@gmal.cmo",
@@ -199,10 +203,13 @@ class StringTest < MiniTest::Unit::TestCase
 
     @good_tld_gr = "test@something.gr"
     @bad_tld_gr = ["test@something.gr"]
+
+    @good_tld_coop = "test@something.coop"
+    @bad_tld_coop = ["test@something.coop"]
   end
 
   def cases
-    ["gmail", "intl_gmail", "yahoo", "hotmail", "net", "org", "comcast", "sbcglobal", "tld_cn", "tld_co", "tld_gr"]
+    ["gmail", "intl_gmail", "yahoo", "hotmail", "net", "org", "comcast", "sbcglobal", "tld_cn", "tld_co", "tld_gr", "tld_coop"]
   end
 
   def test_that_emails_get_fixed

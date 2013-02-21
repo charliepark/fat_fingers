@@ -109,7 +109,6 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmail.colm",
       "test@gmail.conm",
       "test@gmail.coom",
-
       "test@gmail.c0m",
 
       "TEST@GMAIL.COM"

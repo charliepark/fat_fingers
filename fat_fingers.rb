@@ -23,7 +23,7 @@ class String
     .gsub(/\.com(.)*$/, ".com")
     .gsub(/\.co[^op]$/, ".com")
     .gsub(/(\.|\,|\'|\"|\\)*$/, "")
-    .gsub(/\.c*(c|i|l|m|n|o|p)*m+o*$/,".com")
+    .gsub(/\.c*(c|i|l|m|n|o|p|0)*m+o*$/,".com")
     .gsub(/\.(c|v|x)o+(m|n)$/,".com")
     .gsub(/\.n*t*e*t*$/, ".net")
     .gsub(/\.og*r*g*$/, ".org") #require the o, to not false-positive .gr e-mails
@@ -109,6 +109,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmail.colm",
       "test@gmail.conm",
       "test@gmail.coom",
+
+      "test@gmail.c0m",
 
       "TEST@GMAIL.COM"
       ]

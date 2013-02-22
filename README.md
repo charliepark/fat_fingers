@@ -1,32 +1,52 @@
 Fat Fingers
 ===========
 
-A regex for fixing e-mail typos. (When "joe@gmail.com" enters in "joe@gmai.cm", fix it for him.)
+Oooh, hey. It's now a gem!
 
+Fat FIngers is a gem. It gives you an easy, tested method that fixes e-mail typos. (When "joe@gmail.com" enters in "joe@gmal.cmo", fix it for him.)
+
+### How to install it:
+
+If you use a Gemfile, just add `gem "fat_fingers"` to it.
+
+If you want to just download it onto your system, run `gem install fat_fingers`.
+
+You can see the latest version number at [rubygems.org](https://rubygems.org/gems/fat_fingers).
+
+### How to use it, in one line:
+
+This would be in, say, a Rails app, where you've just passed in a new User:
+
+@user.email = params[:user][:email].**clean_up_typoed_email**
+
+Or, maybe, you'd prefer the four-line version:
+
+    $ gem install fat_fingers
+    $ irb
+    > require 'fat_fingers'
+        => true
+    > "joe@gmali.cm".clean_up_typoed_email
+        => "joe@gmail.com"
+
+## What's this all about, then?
 
 ### Let's help our users!
 
-Just a few minutes ago, I got a "message failed to deliver" e-mail. Why? The user had entered in their e-mail address incorrectly. something@something.cm. So, now there's a bit of a hassle, where I have to fix their e-mail in the system, then re-initiate whatever process sent them that e-mail.
+Just a few minutes ago, I got a "message failed to deliver" e-mail. Why? The user had entered in their e-mail address incorrectly. something@something.cm. I mean, really. "cm"? So, now there's a bit of a hassle, where I have to fix their e-mail in the system, then re-initiate whatever process sent them that e-mail.
 
 That's needless work.
 
-**Fat Fingers is simply a Ruby method for cleaning up e-mail typos.**
+**Fat Fingers is simply a Ruby gem with a single method that cleans up e-mail typos.**
 
 It extends String objects with a method called `clean_up_typoed_email`.
 
 All you need to do is attach that method to the user's e-mail address before you save them in the system.
 
-There are some more instructions in the file itself, but it's really straightforward.
+For example, when you're creating a new user, you'll clean up the e-mail with something like this:
 
+    @user.email = params[:email].clean_up_typoed_email
 
-### So this isn't a library / plugin?
-
-Nope! It's just a regex. A dozen or so lines of code, and we tell you where you can stick &rsquo;em!
-
-
-### Does a mere regex deserve its own name?
-
-Probably not. But too bad! This one got one!
+    
 
 
 ### Aren't we disenfranchising users with this?
@@ -42,29 +62,29 @@ Put in other words, **there's absolutely no reason why a webapp should allow a u
 
 ### Are there tests for this code? How can I know it won't false-positive something legitimate, like "@something.co"? ###
 
-There *is* a full test suite for this code, baked right in. Just look at the [code](https://github.com/charliepark/fat_fingers/blob/master/fat_fingers.rb) and you'll see the unit tests starting around line 27.
+There *is* a full test suite for this code, baked right in. Just look at the [code](https://github.com/charliepark/fat_fingers/blob/master/tests/test_fat_fingers.rb) and you'll see the unit tests. You can also just clone / fork the gem to your machine and run `rake` or `rake test` and the tests will run.
 
-Once you've cloned Fat Fingers to your system, just run `ruby fat_fingers.rb` and you'll see the output of the tests. They should all pass.
+They should all pass. Let me know if they don't.
 
-If there's a test case that we haven't written yet, just open up an "issue" here on the GitHub repo, and we'll get right on it. Or, if you want to write your own and send a pull request, that's cool, too.
+Alternately, if there's a test case that we haven't written yet, just open up an "issue" here on the GitHub repo, and we'll get right on it. Or, if you want to write your own and send a pull request, that's cool, too.
 
 
 ### What failing e-mails does Fat Fingers catch? ###
 
 It's a moderately-long list, mostly centered around the kinds of e-mail providers that have lots of users (and lots of users prone to typo their e-mail providers' names). Your 'Yaho's, your 'Hotmali's, your 'Gmial's. That sort of thing.
 
-To see the full list of what Fat Fingers will catch, check out the tests (around line 27 of [the code](https://github.com/charliepark/fat_fingers/blob/master/fat_fingers.rb)).
+To see the full list of what Fat Fingers will catch, check out [the tests](https://github.com/charliepark/fat_fingers/blob/master/tests/test_fat_fingers.rb)).
 
 
 ### A quick note for users running this on Ruby < 1.9
 
-Our multi-line chaining in this regex features the dots at the beginning of each line. Just move the periods to the end of the previous line if you're on Ruby 1.8.x.
+For simplicity's sake, we've set the minimum Ruby version for this to 1.9.2. Our multi-line chaining in this regex features the dots at the beginning of each line. Just move the periods to the end of the previous line if you're on Ruby 1.8.x and it should work like a charm.
 
 
 ### Code Climate!
 
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/charliepark/fat_fingers)
 
-### Make it better!
+## Make it better!
 
 I'd love to hear suggestions, critiques, and improvements. Feel free to fork it, ask me to pull in changes, and so on. I'd also love any test improvements.

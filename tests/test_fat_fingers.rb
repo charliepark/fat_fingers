@@ -1,50 +1,5 @@
-# Just put the following method into your app.
-# If using Rails, create a file, "string.rb" in your
-# config/initializers/ directory and put these 16 lines
-# (including the "class String" and "end" lines) in it.
-
-class String
-
-  # Internal: Check a string for misspelled TLDs and
-  #   misspelled domains from popular e-mail providers.
-  #
-  # Examples
-  #
-  #   "joe@gmail.cmo".clean_up_typoed_email
-  #   # => "joe@gmail.com"
-  #
-  #   "joe@yaho.com".clean_up_typoed_email
-  #   # => "joe@yahoo.com"
-  #
-  # Returns the cleaned String.
-  def clean_up_typoed_email
-    downcase.gsub(/c\.om$/, ".com")
-    .gsub(/n\.et$/, ".net")
-    .gsub(/\.com(.)*$/, ".com")
-    .gsub(/\.co[^op]$/, ".com")
-    .gsub(/(\.|\,|\'|\"|\\)*$/, "")
-    .gsub(/\.c*(c|i|l|m|n|o|p|0)*m+o*$/,".com")
-    .gsub(/\.(c|v|x)o+(m|n)$/,".com")
-    .gsub(/\.n*t*e*t*$/, ".net")
-    .gsub(/\.og*r*g*$/, ".org") #require the o, to not false-positive .gr e-mails
-    .gsub(/@coma*cas*t.net/,"@comcast.net")
-    .gsub(/@sbcgloba.net/, "@sbcglobal.net")
-    .gsub(/@gm*i*a*m*l*i*l*a*\./,"@gmail.")
-    .gsub(/@y*a*h*a*o*\./,"@yahoo.")
-    .gsub(/@h(o|p)*to*m*i*a*l*i*l*a*\./,"@hotmail.")
-  end
-
-end
-
-# In your users_controller.rb file, in the 'create' method,
-# clean up e-mails by doing something like this before saving the user:
-# @user.email = params[:user][:email].clean_up_typoed_email
-
-
-# Below are the unit tests for Fat Fingers.
-# Simply run 'ruby fat_fingers.rb' in your Terminal to see the test results.
-
 require 'minitest/autorun'
+require 'fat_fingers'
 
 class StringTest < MiniTest::Unit::TestCase
   def setup
@@ -226,5 +181,4 @@ class StringTest < MiniTest::Unit::TestCase
       assert_equal eval("@good_"+test), eval("@good_"+test).clean_up_typoed_email
     end
   end
-
 end

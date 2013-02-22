@@ -3,7 +3,7 @@ Fat Fingers
 
 Oooh, hey. It's now a gem!
 
-Fat FIngers is a gem. It gives you an easy, tested method that fixes e-mail typos. (When "joe@gmail.com" enters in "joe@gmal.cmo", fix it for him.)
+Fat Fingers is a gem. It gives you an easy, tested method that fixes e-mail typos. (When "joe@gmail.com" enters in "joe@gmal.cmo", fix it for him.)
 
 ### How to install it:
 

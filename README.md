@@ -17,7 +17,7 @@ You can see the latest version number at [rubygems.org](https://rubygems.org/gem
 
 This would be in, say, a Rails app, where you've just passed in a new User:
 
-@user.email = params[:user][:email].**clean_up_typoed_email**
+    @user.email = params[:user][:email].clean_up_typoed_email
 
 Or, maybe, you'd prefer the four-line version:
 
@@ -53,7 +53,7 @@ For example, when you're creating a new user, you'll clean up the e-mail with so
 
 There's a similar tool, called [Mailcheck.js](https://github.com/Kicksend/mailcheck). It offers suggestions to the user, to check the e-mail they entered to make sure it's legit.
 
-Fat Fingers is different, in that it does the work silently, without checking with the user.
+Fat Fingers is different, in that it does the work silently, without checking with the user. It also has a more focused use-case. All we're trying to do is to eliminate *clearly* wrong e-mail addresses.
 
 Perhaps you want to roll with their approach. That's cool, and you'd be in good company. For my own projects, I'd rather not bother the user with something that's obviously wrong, if I can fix it on my own.
 
@@ -73,7 +73,7 @@ Alternately, if there's a test case that we haven't written yet, just open up an
 
 It's a moderately-long list, mostly centered around the kinds of e-mail providers that have lots of users (and lots of users prone to typo their e-mail providers' names). Your 'Yaho's, your 'Hotmali's, your 'Gmial's. That sort of thing.
 
-To see the full list of what Fat Fingers will catch, check out [the tests](https://github.com/charliepark/fat_fingers/blob/master/tests/test_fat_fingers.rb)).
+To see the full list of what Fat Fingers will catch, check out [the tests](https://github.com/charliepark/fat_fingers/blob/master/tests/test_fat_fingers.rb).
 
 
 ### A quick note for users running this on Ruby < 1.9
@@ -87,4 +87,4 @@ For simplicity's sake, we've set the minimum Ruby version for this to 1.9.2. Our
 
 ## Make it better!
 
-I'd love to hear suggestions, critiques, and improvements. Feel free to fork it, ask me to pull in changes, and so on. I'd also love any test improvements.
+I'd love to hear suggestions, critiques, and improvements. Feel free to fork it, ask me to pull in changes, and so on. I'd also love any test improvements, of course.

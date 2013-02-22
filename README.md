@@ -78,7 +78,7 @@ To see the full list of what Fat Fingers will catch, check out [the tests](https
 
 ### A quick note for users running this on Ruby < 1.9
 
-For simplicity's sake, we've set the minimum Ruby version for this to 1.9.2. Our multi-line chaining in this regex features the dots at the beginning of each line. Just move the periods to the end of the previous line if you're on Ruby 1.8.x and it should work like a charm.
+For simplicity's sake, I've set the minimum Ruby version for this to 1.9.2. There's a very good chance it'll work on 1.8 or other Rubies. If you're interested in testing it out on a different Ruby version and letting me know how it works for you, I'd love to know.
 
 
 ### Code Climate!

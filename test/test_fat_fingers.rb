@@ -1,6 +1,6 @@
 require 'minitest/autorun'
-require 'fat_fingers'
-#require './lib/fat_fingers.rb'
+#require 'fat_fingers'
+require './lib/fat_fingers.rb'
 
 class StringTest < MiniTest::Unit::TestCase
   def setup

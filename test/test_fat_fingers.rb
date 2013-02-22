@@ -75,7 +75,7 @@ class StringTest < MiniTest::Unit::TestCase
       "test@#gmail.com",
       "test\#@gmail.com",
       "test@gmail..com",
-      #"test@gmailcom",
+      "test@gmailcom",
 
       "TEST@GMAIL.COM"
       ]
@@ -140,7 +140,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@something.et",
       "test@something.nte",
       "test@something.nett",
-      "test@something.net"
+      "test@something.net",
+      "test@somethingnet"
       ]
 
     @good_org = "test@something.org"
@@ -148,7 +149,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@something.or",
       "test@something.og",
       "test@something.ogr",
-      "test@something.orgg"
+      "test@something.orgg",
+      "test@somethingorg"
       ]
 
     @good_comcast = "test@comcast.net"

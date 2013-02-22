@@ -28,7 +28,7 @@ class String
     .gsub(/@g(n|m)*i*a*m*l*i*l*a*\./,"@gmail.")
     .gsub(/@y*a*h*a*o*\./,"@yahoo.")
     .gsub(/@h(o|p)*to*m*i*a*l*i*l*a*\./,"@hotmail.")
-    .gsub(/[^\.](com|org|net)$/, '.\1')
+    .gsub(/([^\.])(com|org|net)$/, '\1.\2')
     
   end
 

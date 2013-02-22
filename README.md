@@ -32,7 +32,9 @@ Or, maybe, you'd prefer the four-line version:
 
 ### Let's help our users!
 
-Just a few minutes ago, I got a "message failed to deliver" e-mail. Why? The user had entered in their e-mail address incorrectly. something@something.cm. I mean, really. "cm"? So, now there's a bit of a hassle, where I have to fix their e-mail in the system, then re-initiate whatever process sent them that e-mail.
+Just a few minutes ago, I got a "message failed to deliver" e-mail. Why? The user had entered in their e-mail address incorrectly. something@something.cm. I mean, really. "cm"? Whatever. It happens.
+
+So, now there's a bit of a hassle, where I have to fix their e-mail in the system, then re-initiate whatever process sent them that e-mail.
 
 That's needless work.
 
@@ -62,7 +64,7 @@ Put in other words, **there's absolutely no reason why a webapp should allow a u
 
 ### Are there tests for this code? How can I know it won't false-positive something legitimate, like "@something.co"? ###
 
-There *is* a full test suite for this code, baked right in. Just look at the [code](https://github.com/charliepark/fat_fingers/blob/master/tests/test_fat_fingers.rb) and you'll see the unit tests. You can also just clone / fork the gem to your machine and run `rake` or `rake test` and the tests will run.
+There *is* a full test suite for this code, baked right in. Just look at the [code](https://github.com/charliepark/fat_fingers/blob/master/test/test_fat_fingers.rb) and you'll see the unit tests. You can also just clone / fork the gem to your machine and run `rake` or `rake test` and the tests will run.
 
 They should all pass. Let me know if they don't.
 
@@ -73,7 +75,9 @@ Alternately, if there's a test case that we haven't written yet, just open up an
 
 It's a moderately-long list, mostly centered around the kinds of e-mail providers that have lots of users (and lots of users prone to typo their e-mail providers' names). Your 'Yaho's, your 'Hotmali's, your 'Gmial's. That sort of thing.
 
-To see the full list of what Fat Fingers will catch, check out [the tests](https://github.com/charliepark/fat_fingers/blob/master/tests/test_fat_fingers.rb).
+Also, just about every incorrect permutation of '.cm', '.cmo', 'comn', and all the other invalid TLDs that you think "there's no way someone could *possibly* type that in" (and yet, they do).
+
+To see the full list of what Fat Fingers will catch, check out [the tests](https://github.com/charliepark/fat_fingers/blob/master/test/test_fat_fingers.rb).
 
 
 ### A quick note for users running this on Ruby < 1.9

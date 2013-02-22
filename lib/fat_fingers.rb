@@ -59,11 +59,11 @@ protected
   end
 
   def clean_up_gmail
-    gsub(/@g(n|m)*i*a*m*l*i*l*a*\./,"@gmail.")
+    gsub(/@g(n|m)*(a|i|l)+m*(a|i|l)*\./,"@gmail.")
   end
 
   def clean_up_hotmail
-    gsub(/@h(o|p)*to*m*i*a*l*i*l*a*\./,"@hotmail.")
+    gsub(/@h(o|p)*to*m*(a|i|l)*\./,"@hotmail.")
   end
 
   def clean_up_yahoo

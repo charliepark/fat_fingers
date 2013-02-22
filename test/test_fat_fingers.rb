@@ -133,6 +133,9 @@ class StringTest < MiniTest::Unit::TestCase
       "test@sbcgloba.net"
       ]
 
+    @good_gm = "test@gm.com"
+    @bad_gm = ["test@gm.com"]
+
     @good_tld_cn = "test@something.cn"
     @bad_tld_cn = ["test@something.cn"]
 
@@ -144,10 +147,11 @@ class StringTest < MiniTest::Unit::TestCase
 
     @good_tld_coop = "test@something.coop"
     @bad_tld_coop = ["test@something.coop"]
+
   end
 
   def cases
-    ["gmail", "intl_gmail", "yahoo", "hotmail", "com", "net", "org", "comcast", "sbcglobal", "tld_cn", "tld_co", "tld_gr", "tld_coop"]
+    ["gmail", "intl_gmail", "yahoo", "hotmail", "com", "net", "org", "comcast", "sbcglobal", "gm", "tld_cn", "tld_co", "tld_gr", "tld_coop"]
   end
 
   def test_that_emails_get_fixed

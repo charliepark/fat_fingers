@@ -52,13 +52,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmail.cmo",
       "test@gmail.copm", 
       "test@gmail.xom",
-      "test@gmail.com,",
-      "test@gmail.com.",
       "test@gmail.vom",
       "test@gmail.comn",
-      "test@gmail.com'",
-      "test@gmail.com\"",
-      "test@gmail.com\\",
       "test@gmail.comj",
       "test@gmail.coim",
       "test@gmail.cpm",
@@ -67,6 +62,20 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmail.coom",
       "test@gmail.c0m",
       "test@gnail.com",
+
+      "te st@gmail.com",
+
+      "test@gmail.com'",
+      "te'st@gmail.com",
+      "test@gmail.com\"",
+      "test@gmail.com\\",
+      "test@gmail.com,",
+      "test@gmail.com.",
+      "test@gmail,com",
+      "test@#gmail.com",
+      "test\#@gmail.com",
+      "test@gmail..com",
+      #"test@gmailcom",
 
       "TEST@GMAIL.COM"
       ]
@@ -130,7 +139,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@something.ne",
       "test@something.et",
       "test@something.nte",
-      "test@something.nett"
+      "test@something.nett",
+      "test@something.net"
       ]
 
     @good_org = "test@something.org"

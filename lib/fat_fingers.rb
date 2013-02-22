@@ -12,11 +12,13 @@ class String
   #
   # Returns the cleaned String.
   def clean_up_typoed_email
-    downcase.gsub(/c\.om$/, ".com")
+    downcase.gsub(/(\s|\#|\'|\"|\\)*/, "")
+    .gsub(/(\,|\.\.)/, ".")
+    .gsub(/c\.om$/, ".com")
     .gsub(/n\.et$/, ".net")
     .gsub(/\.com(.)*$/, ".com")
     .gsub(/\.co[^op]$/, ".com")
-    .gsub(/(\.|\,|\'|\"|\\)*$/, "")
+    .gsub(/\.*$/, "")
     .gsub(/\.c*(c|i|l|m|n|o|p|0)*m+o*$/,".com")
     .gsub(/\.(c|v|x)o+(m|n)$/,".com")
     .gsub(/\.n*t*e*t*$/, ".net")
@@ -26,6 +28,8 @@ class String
     .gsub(/@g(n|m)*i*a*m*l*i*l*a*\./,"@gmail.")
     .gsub(/@y*a*h*a*o*\./,"@yahoo.")
     .gsub(/@h(o|p)*to*m*i*a*l*i*l*a*\./,"@hotmail.")
+    .gsub(/[^\.](com|org|net)$/, '.\1')
+    
   end
 
 end

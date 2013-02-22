@@ -15,88 +15,29 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmila.com",
       "test@gmaill.com",
       "test@gamil.com",
-
-      "test@gmailc.om",
-      "test@gmail.coom",
-      "test@gmail.comm",
-      "test@gmail.comme",
-      "test@gmail.co,",
-      "test@gmail.co<",
-
-      "test@gmai.cmo",
-      "test@gmal.cmo",
-      "test@gmil.cmo",
-      "test@gmial.cmo",
-      "test@gmali.cmo",
-      "test@gmaill.cmo",
-      "test@gamil.cmo",
-
-      "test@gmai.cm",
-      "test@gmal.cm",
-      "test@gmil.cm",
-      "test@gmial.cm",
-      "test@gmali.cm",
-      "test@gmaill.cm",
-      "test@gamil.cm",
-
-      "test@gmai.om",
-      "test@gmal.om",
-      "test@gmil.om",
-      "test@gmial.om",
-      "test@gmali.om",
-      "test@gmaill.om",
-      "test@gamil.om",
-
-      "test@gmail.ocm",
-      "test@gmail.con",
-      "test@gmail.cmo",
-      "test@gmail.copm", 
-      "test@gmail.xom",
-      "test@gmail.vom",
-      "test@gmail.comn",
-      "test@gmail.comj",
-      "test@gmail.coim",
-      "test@gmail.cpm",
-      "test@gmail.colm",
-      "test@gmail.conm",
-      "test@gmail.coom",
-      "test@gmail.c0m",
       "test@gnail.com",
-
-      "te st@gmail.com",
-
-      "test@gmail.com'",
-      "te'st@gmail.com",
-      "test@gmail.com\"",
-      "test@gmail.com\\",
-      "test@gmail.com,",
-      "test@gmail.com.",
-      "test@gmail,com",
-      "test@#gmail.com",
-      "test\#@gmail.com",
-      "test@gmail..com",
-      "test@gmailcom",
-
-      "TEST@GMAIL.COM"
+      "test@gmailc.om"
       ]
 
     @good_intl_gmail = "test@gmail.co.uk"
     @bad_intl_gmail = [
       "test@gmai.co.uk",
       "test@gmal.co.uk",
+      "test@gmaal.co.uk",
       "test@gmil.co.uk",
-      "test@gail.co.uk",
+      "test@gmial.co.uk",
       "test@gmali.co.uk",
+      "test@gmila.co.uk",
       "test@gmaill.co.uk",
-      "test@gamil.co.uk"
+      "test@gamil.co.uk",
+      "test@gnail.co.uk",
       ]
 
     @good_yahoo = "test@yahoo.com"
     @bad_yahoo = [
       "test@aho.com",
       "test@ahoo.com",
-      "test@ahoo.cm",
-
+      "test@ahoo.com",
       "test@yaho.com",
       "test@yahooo.com",
       "test@yhao.com",
@@ -106,24 +47,6 @@ class StringTest < MiniTest::Unit::TestCase
       "test@yao.com",
       "test@yaooo.com",
       "test@yahooc.om",
-
-      "test@yaho.cm",
-      "test@yahooo.cm",
-      "test@yhao.cm",
-      "test@yhaoo.cm",
-      "test@yho.cm",
-      "test@yhooo.cm",
-      "test@yao.cm",
-      "test@yaooo.cm",
-
-      "test@yaho.om",
-      "test@yahooo.om",
-      "test@yhao.om",
-      "test@yhaoo.om",
-      "test@yho.om",
-      "test@yhooo.om",
-      "test@yao.om",
-      "test@yaooo.om"
       ]
 
     @good_hotmail = "test@hotmail.com"
@@ -131,6 +54,50 @@ class StringTest < MiniTest::Unit::TestCase
       "test@hotmaill.com",
       "test@hptmail.com",
       "test@htomali.com"
+      ]
+
+    @good_com = "test@something.com"
+    @bad_com = [
+      "test@somethingc.om",
+      "test@something.coom",
+      "test@something.comm",
+      "test@something.comme",
+      "test@something.co,",
+      "test@something.co<",
+      "test@something.cmo",
+      "test@something.cm",
+      "test@something.om",
+
+      "test@something.ocm",
+      "test@something.con",
+      "test@something.cmo",
+      "test@something.copm", 
+      "test@something.xom",
+      "test@something.vom",
+      "test@something.comn",
+      "test@something.comj",
+      "test@something.coim",
+      "test@something.cpm",
+      "test@something.colm",
+      "test@something.conm",
+      "test@something.coom",
+      "test@something.c0m",
+
+      "test@something.com'",
+      "te'st@something.com",
+      "test@something.com\"",
+      "test@something.com\\",
+      "test@something.com,",
+      "test@something.com.",
+      "test@something,com",
+      "test@#something.com",
+      "test\#@something.com",
+      "test@something..com",
+      "test@somethingcom",
+
+      "te st@something.com",
+      "TEST@SOMETHING.COM"
+
       ]
 
     @good_net = "test@something.net"
@@ -179,7 +146,7 @@ class StringTest < MiniTest::Unit::TestCase
   end
 
   def cases
-    ["gmail", "intl_gmail", "yahoo", "hotmail", "net", "org", "comcast", "sbcglobal", "tld_cn", "tld_co", "tld_gr", "tld_coop"]
+    ["gmail", "intl_gmail", "yahoo", "hotmail", "com", "net", "org", "comcast", "sbcglobal", "tld_cn", "tld_co", "tld_gr", "tld_coop"]
   end
 
   def test_that_emails_get_fixed

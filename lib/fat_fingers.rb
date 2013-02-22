@@ -1,7 +1,6 @@
 class String
 
-  # Internal: Check a string for misspelled TLDs and
-  #   misspelled domains from popular e-mail providers.
+  # Internal: Check a string for misspelled TLDs and misspelled domains from popular e-mail providers.
   #
   # Examples
   #

@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'fat_fingers'
+#require './lib/fat_fingers.rb'
 
 class StringTest < MiniTest::Unit::TestCase
   def setup
@@ -65,6 +66,7 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmail.conm",
       "test@gmail.coom",
       "test@gmail.c0m",
+      "test@gnail.com",
 
       "TEST@GMAIL.COM"
       ]

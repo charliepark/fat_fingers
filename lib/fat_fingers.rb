@@ -23,7 +23,7 @@ class String
     .gsub(/\.og*r*g*$/, ".org") #require the o, to not false-positive .gr e-mails
     .gsub(/@coma*cas*t.net/,"@comcast.net")
     .gsub(/@sbcgloba.net/, "@sbcglobal.net")
-    .gsub(/@gm*i*a*m*l*i*l*a*\./,"@gmail.")
+    .gsub(/@g(n|m)*i*a*m*l*i*l*a*\./,"@gmail.")
     .gsub(/@y*a*h*a*o*\./,"@yahoo.")
     .gsub(/@h(o|p)*to*m*i*a*l*i*l*a*\./,"@hotmail.")
   end

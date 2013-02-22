@@ -91,6 +91,7 @@ class StringTest < MiniTest::Unit::TestCase
       "test@something.com.",
       "test@something,com",
       "test@\#something.com",
+      "test@#something.com",
       "test@@something.com",
       "test\#@something.com",
       "test@something..com",

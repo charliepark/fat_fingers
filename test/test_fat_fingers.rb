@@ -90,14 +90,14 @@ class StringTest < MiniTest::Unit::TestCase
       "test@something.com,",
       "test@something.com.",
       "test@something,com",
-      "test@#something.com",
+      "test@\#something.com",
+      "test@@something.com",
       "test\#@something.com",
       "test@something..com",
       "test@somethingcom",
 
       "te st@something.com",
       "TEST@SOMETHING.COM"
-
       ]
 
     @good_net = "test@something.net"

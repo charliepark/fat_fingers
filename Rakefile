@@ -28,6 +28,10 @@ task :gem do
   File.open("./fat_fingers.gemspec", "w") {|file| file.write(lines.join) }
 
   system "gem build fat_fingers.gemspec"
-
   system "gem push fat_fingers-#{@new_version}.gem"
+
+  system "git add ."
+  system "git commit -am 'Bump to version #{@new_version}'."
+  system "git push"
+
 end

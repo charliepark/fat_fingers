@@ -41,6 +41,7 @@ protected
   end
 
   def fix_coms_with_appended_letters
+    gsub(/\.couk$/, ".co.uk").
     gsub(/\.com(.)*$/, ".com").
     gsub(/\.co[^op]$/, ".com")
   end

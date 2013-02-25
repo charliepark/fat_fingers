@@ -10,6 +10,6 @@ Gem::Specification.new do |s|
   s.require_path = "lib"
   s.homepage     = "http://github.com/charliepark/fat_fingers"
   s.platform     =  Gem::Platform::RUBY
-  s.required_ruby_version = ">= 1.9.2"
+  s.required_ruby_version = ">= 1.8.7"
   s.test_files   = "test/test_fat_fingers.rb"
 end

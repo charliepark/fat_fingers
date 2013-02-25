@@ -1,14 +1,9 @@
-require 'sinatra'
-require 'fat_fingers'
-require 'uri'
-#require 'pony'
-
-#Pony.options = {:to => 'charlie@charliepark.org', :from => 'charlie@charliepark.org', :subject => 'Fat Fingers report'}
+Pony.options = {:to => 'charlie@charliepark.org', :from => 'charlie@charliepark.org', :subject => 'Fat Fingers report'}
 
 post '/oops' do
   @bad_email = params[:email]
   @message = "Someone tested `#{@bad_email}` at the Fat Fingers demo page, and it apparently didn't work well.\n\n\n'#{@bad_email}.'clean_up_typoed_email => #{@bad_email.clean_up_typoed_email}."
-#  Pony.mail(:body => @message)
+  Pony.mail(:body => @message)
   redirect to '/oops'
 end
 
@@ -21,12 +16,14 @@ get '/:email?' do
   @not_broken_examples = ["te.st@gmail.com", "test\+spamfilter@gmail.com", "test@gm.com", "test@gmail.couk", "test@something.cn", "test@something.co", "test@something.coop", "test@something.gr", "test@something.net"]
   if params[:email] and params[:email].length > 0
     @email = URI::decode(params[:email])
-    # Pony.mail(:body => "Someone ran an e-mail through the Fat Fingers demo; #{@email} => #{@email.clean_up_typoed_email}")
+    Pony.mail(:body => "Someone ran an e-mail through the Fat Fingers demo; #{@email} => #{@email.clean_up_typoed_email}")
   else
     @email = @broken_examples.sample
   end
   erb :index
 end
+
+enable :inline_templates
 
 __END__
 
@@ -60,6 +57,7 @@ __END__
       .give-it-a-shot{background:#ccc;border:none;font-size:30px;width:480px}
       .header-text{background:#222;color:#fff;font-size:50px;line-height:80px;margin:0;padding:30px 0;}
       .looks-good-try-again{background:#333;color:#fff;margin-top:4px;padding:20px 0 10px}
+      .microcopy{font-size:14px;padding:0 0 10px}
       .oh-snap-button{background:#222;border-color:gray;border-radius:10px;border-width:1px;box-shadow:0 2px 10px #000;color:#ccc; cursor: pointer;font-size:16px;padding:10px 30px}
       .oh-snap-report-it{background:#444;color:#fff;margin-top:4px;padding:20px 0 10px}
       .result-email{background:rgba(255,255,255,0.2)}
@@ -79,7 +77,8 @@ __END__
 
     <div class="looks-good-try-again">
       <h3 class='title-action'>Look good? Try another!</h3>
-      <p>Enter an e-mail to see how Fat Fingers would handle it: <form action='/'><input class='give-it-a-shot' name='email' autofocus /></form></p>
+      <p>Enter an e-mail to see how Fat Fingers would handle it: <form action='/'><input class='give-it-a-shot' name='email' autofocus /></form>
+      <p class="microcopy">Examples: <a href="../?email=test@something.cpm">test@something.cpm</a>, <a href="../?email=test@gmal.com">test@gmal.com</a>, <a href="../?email=test@yahoo.cmo">test@yahoo.cmo</a></p>
     </div>
     <div class="oh-snap-report-it">
       <h3 class='title-action'>Look broken? Report it!</h3>

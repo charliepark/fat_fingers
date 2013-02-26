@@ -1,7 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    fat_fingers (0.1.10)
+    fat_fingers (0.1.11)
     i18n (0.6.1)
     mail (2.5.3)
       i18n (>= 0.4.0)

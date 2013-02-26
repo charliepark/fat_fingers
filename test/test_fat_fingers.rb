@@ -63,34 +63,34 @@ class StringTest < MiniTest::Unit::TestCase
       "test@something.coom",
       "test@something.comm",
       "test@something.comme",
-      "test@something.co,",
+      "test@something.co,", # assume that someone entering this in *meant* to type in '.com'
+      "test@something.co.",
       "test@something.co<",
+      "test@something.co>",
       "test@something.cmo",
       "test@something.cm",
       "test@something.om",
 
-      "test@something.ocm",
-      "test@something.con",
-      "test@something.cmo",
-      "test@something.copm", 
-      "test@something.xom",
-      "test@something.vom",
-      "test@something.cok",
-      "test@something.comn",
-      "test@something.comj",
+      "test@something.c0m",
       "test@something.coim",
-      "test@something.cpm",
+      "test@something.cok",
       "test@something.colm",
+      "test@something.comj",
+      "test@something.comn",
+      "test@something.con",
       "test@something.conm",
       "test@something.coom",
-      "test@something.c0m",
+      "test@something.copm",
+      "test@something.cpm",
+      "test@something.ocm",
+      "test@something.vom",
+      "test@something.xom",
 
       "test@something.com'",
       "te'st@something.com",
       "test@something.com\"",
       "test@something.com\\",
       "test@something.com,",
-      "test@something.co,",
       "test@something.com.",
       "test@something,com",
       "test@\#something.com",
@@ -149,8 +149,11 @@ class StringTest < MiniTest::Unit::TestCase
     @good_tld_cn = "test@something.cn"
     @bad_tld_cn = ["test@something.cn"]
 
-    @good_tld_co = "test@something.co"
-    @bad_tld_co = ["test@something.co"]
+    @good_tld_co = "test@something.com.co"
+    @bad_tld_co = ["test@something.com.co"]
+
+    @good_random_co = "test@something.co"
+    @bad_random_co = ["test@something.co"]
 
     @good_tld_gr = "test@something.gr"
     @bad_tld_gr = ["test@something.gr"]
@@ -161,13 +164,18 @@ class StringTest < MiniTest::Unit::TestCase
   end
 
   def cases
-    ["gmail", "intl_gmail", "yahoo", "hotmail", "com", "net", "org", "comcast", "sbcglobal", "gm", "tld_cn", "tld_co", "tld_gr", "tld_coop", "gmail_with_dots", "gmail_with_plus"]
+    ["gmail", "intl_gmail", "yahoo", "hotmail", "com", "net", "org", "comcast", "sbcglobal", "gm", "tld_cn", "tld_co", "random_co", "tld_gr", "tld_coop", "gmail_with_dots", "gmail_with_plus"]
   end
 
   def test_that_emails_get_fixed
+    i = 1
     cases.each do |test|
       eval("@bad_"+test).each do |email|
+        unless email.clean_up_typoed_email == (processed = eval("@good_"+test))
+          puts "#{i} - Failed on '#{email}'"
+        end
         assert_equal eval("@good_"+test), email.clean_up_typoed_email
+        i += 1
       end
     end
   end

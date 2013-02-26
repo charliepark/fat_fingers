@@ -15,6 +15,7 @@ class String
     downcase.
     remove_invalid_characters.
     fix_transposed_periods.
+    handle_different_country_tlds.
     fix_coms_with_appended_letters.
     clean_up_funky_coms.
     clean_up_funky_nets.
@@ -40,9 +41,13 @@ protected
     # can't do "o.gr" => ".org", as ".gr" is a valid TLD
   end
 
+  def handle_different_country_tlds
+    gsub(/\.couk$/, ".co.uk")
+  end
+
   def fix_coms_with_appended_letters
-    gsub(/\.couk$/, ".co.uk").
-    gsub(/\.com(.)*$/, ".com").
+    gsub(/\.com\.$/, ".com").
+    gsub(/\.com[^\.].*$/, ".com").
     gsub(/\.co[^op]$/, ".com")
   end
 

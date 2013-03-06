@@ -87,7 +87,7 @@ For simplicity's sake, I've set the minimum Ruby version for this to 1.9.2. Ther
 
 ### Code Climate!
 
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/charliepark/fat_fingers)
+[![Code Climate](https://codeclimate.com/github/charliepark/fat_fingers.png)](https://codeclimate.com/github/charliepark/fat_fingers)
 
 ## Make it better!
 

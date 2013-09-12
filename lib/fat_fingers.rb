@@ -15,6 +15,7 @@ class String
     downcase.
     remove_invalid_characters.
     fix_transposed_periods.
+    remove_period_before_at_sign.
     handle_different_country_tlds.
     fix_coms_with_appended_letters.
     clean_up_funky_coms.
@@ -41,8 +42,13 @@ protected
     # can't do "o.gr" => ".org", as ".gr" is a valid TLD
   end
 
+  def remove_period_before_at_sign
+    gsub(/\.*@/, "@")
+  end
+
   def handle_different_country_tlds
-    gsub(/\.couk$/, ".co.uk")
+    gsub(/\.(o\.uk|couk|co\.um)$/, ".co.uk").
+    gsub(/\.(cojp|co\.lp)$/, ".co.jp")
   end
 
   def fix_coms_with_appended_letters
@@ -69,7 +75,7 @@ protected
   end
 
   def clean_up_hotmail
-    gsub(/@h(o|p)*to*m*(a|i|k|l)*\./,"@hotmail.")
+    gsub(/@h(o|p)*y*t*o*m*(a|i|k|l)*\./,"@hotmail.")
   end
 
   def clean_up_yahoo

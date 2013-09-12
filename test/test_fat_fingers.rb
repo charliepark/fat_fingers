@@ -1,3 +1,4 @@
+gem 'minitest'
 require 'minitest/autorun'
 #require 'fat_fingers'
 require './lib/fat_fingers.rb'
@@ -16,7 +17,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmaill.com",
       "test@gamil.com",
       "test@gnail.com",
-      "test@gmailc.om"
+      "test@gmailc.om",
+      "test.@gmail.com"
       ]
 
     @good_intl_gmail = "test@gmail.co.uk"
@@ -31,6 +33,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmaill.co.uk",
       "test@gamil.co.uk",
       "test@gnail.co.uk",
+      "test@gmail.co.um",
+      "test@gmail.o.uk",
       "test@gmail.couk"
       ]
 
@@ -52,8 +56,10 @@ class StringTest < MiniTest::Unit::TestCase
 
     @good_hotmail = "test@hotmail.com"
     @bad_hotmail = [
+      "test@htmail.com",
       "test@hotmaill.com",
       "test@hotmaik.com",
+      "test@hoymail.com",
       "test@hptmail.com",
       "test@htomali.com"
       ]
@@ -100,9 +106,11 @@ class StringTest < MiniTest::Unit::TestCase
       "test\#@something.com",
       "test@something..com",
       "test@somethingcom",
+      "test.@something.com",
 
       "te st@something.com",
       " test@something.com",
+      "test@something.com ",
       "TEST@SOMETHING.COM"
       ]
 
@@ -159,13 +167,19 @@ class StringTest < MiniTest::Unit::TestCase
     @good_tld_gr = "test@something.gr"
     @bad_tld_gr = ["test@something.gr"]
 
+    @good_tld_jp = "test@something.co.jp"
+    @bad_tld_jp = [
+      "test@something.co.lp",
+      "test@something.cojp"
+    ]
+
     @good_tld_coop = "test@something.coop"
     @bad_tld_coop = ["test@something.coop"]
 
   end
 
   def cases
-    ["gmail", "intl_gmail", "yahoo", "hotmail", "com", "net", "org", "comcast", "sbcglobal", "gm", "tld_cn", "tld_co", "random_co", "tld_gr", "tld_coop", "gmail_with_dots", "gmail_with_plus"]
+    ["gmail", "intl_gmail", "yahoo", "hotmail", "com", "net", "org", "comcast", "sbcglobal", "gm", "tld_cn", "tld_co", "random_co", "tld_gr", "tld_jp", "tld_coop", "gmail_with_dots", "gmail_with_plus"]
   end
 
   def test_that_emails_get_fixed

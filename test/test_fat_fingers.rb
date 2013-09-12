@@ -53,6 +53,7 @@ class StringTest < MiniTest::Unit::TestCase
     @good_hotmail = "test@hotmail.com"
     @bad_hotmail = [
       "test@hotmaill.com",
+      "test@hotmaik.com",
       "test@hptmail.com",
       "test@htomali.com"
       ]

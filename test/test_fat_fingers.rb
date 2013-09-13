@@ -144,7 +144,8 @@ class StringTest < MiniTest::Unit::TestCase
 
     @good_sbcglobal = "test@sbcglobal.net"
     @bad_sbcglobal = [
-      "test@sbcgloba.net"
+      "test@sbcgloba.net",
+      "test@sbcglobl.net"
       ]
 
     @good_gm = "test@gm.com"

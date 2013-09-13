@@ -75,7 +75,7 @@ protected
   end
 
   def clean_up_hotmail
-    gsub(/@h(o|p)*y*t*o*m*(a|i|k|l)*\./,"@hotmail.")
+    gsub(/@h(o|p)*y*t*o*a*m*(a|i|k|l)*\./,"@hotmail.")
   end
 
   def clean_up_yahoo
@@ -83,8 +83,8 @@ protected
   end
 
   def clean_up_other_providers
-    gsub(/@coma*cas*t.net/,"@comcast.net").
-    gsub(/@sbcgloba.net/, "@sbcglobal.net")
+    gsub(/@coma*cas*t\.net/,"@comcast.net").
+    gsub(/@sbcgloba\.net/, "@sbcglobal.net")
   end
 
   def add_a_period_if_they_forgot_it

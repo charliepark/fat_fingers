@@ -3,11 +3,11 @@ Fat Fingers
 
 Oooh, hey. It's now a gem!
 
-Fat Fingers is a gem. It gives you an easy, tested method that fixes e-mail typos. (When "joe@gmail.com" enters in "joe@gmal.cmo", fix it for him.)
+Fat Fingers is a gem. It gives you an easy, tested method that fixes email typos. (When "joe@gmail.com" enters in "joe@gmal.cmo", fix it for him.)
 
 ### How to install it:
 
-If you use a Gemfile, just add `gem "fat_fingers"` to it.
+If you use a Gemfile, just add `gem "fat_fingers"` to it and run `bundle install`.
 
 If you want to just download it onto your system, run `gem install fat_fingers`.
 
@@ -15,7 +15,7 @@ You can see the latest version number at [rubygems.org](https://rubygems.org/gem
 
 ### How to use it, in one line:
 
-This would be in, say, a Rails app, where you've just passed in a new User:
+This would be in, say, a Rails app, where you've just passed in a new User, who has an email address:
 
     @user.email = params[:user][:email].clean_up_typoed_email
 
@@ -32,19 +32,19 @@ Or, maybe, you'd prefer the four-line version:
 
 ### Let's help our users!
 
-Just a few minutes ago, I got a "message failed to deliver" e-mail. Why? The user had entered in their e-mail address incorrectly. something@something.cm. I mean, really. "cm"? Whatever. It happens.
+Just a few minutes ago, I got a "message failed to deliver" email. Why? The user had entered in their email address incorrectly. something@something.cm. I mean, really. "cm"? Whatever. It happens.
 
-So, now there's a bit of a hassle, where I have to fix their e-mail in the system, then re-initiate whatever process sent them that e-mail.
+So, now there's a bit of a hassle, where I have to fix their email in the system, then re-initiate whatever process sent them that email.
 
 That's needless work.
 
-**Fat Fingers is simply a Ruby gem with a single method that cleans up e-mail typos.**
+**Fat Fingers is simply a Ruby gem with a single method that cleans up email typos.**
 
 It extends String objects with a method called `clean_up_typoed_email`.
 
-All you need to do is attach that method to the user's e-mail address before you save them in the system.
+All you need to do is attach that method to the user's email address before you save them in the system.
 
-For example, when you're creating a new user, you'll clean up the e-mail with something like this:
+For example, when you're creating a new user, you'll clean up the email with something like this:
 
     @user.email = params[:email].clean_up_typoed_email
 
@@ -53,13 +53,13 @@ For example, when you're creating a new user, you'll clean up the e-mail with so
 
 ### Aren't we disenfranchising users with this?
 
-There's a similar tool, called [Mailcheck.js](https://github.com/Kicksend/mailcheck). It offers suggestions to the user, to check the e-mail they entered to make sure it's legit.
+There's a similar tool, called [Mailcheck.js](https://github.com/Kicksend/mailcheck). It offers suggestions to the user, to check the email they entered to make sure it's legit.
 
-Fat Fingers is different, in that it does the work silently, without checking with the user. It also has a more focused use-case. All we're trying to do is to eliminate *clearly* wrong e-mail addresses.
+Fat Fingers is different, in that it does the work silently, without checking with the user. It also has a more focused use-case. All we're trying to do is to eliminate *clearly* wrong email addresses.
 
 Perhaps you want to roll with their approach. That's cool, and you'd be in good company. For my own projects, I'd rather not bother the user with something that's obviously wrong, if I can fix it on my own.
 
-Put in other words, **there's absolutely no reason why a webapp should allow a user to register with the e-mail "@gmali.com", or "@gmail.ocm", or anything else that's clearly wrong.** And we shouldn't add friction to the signup process by asking them "are you sure you spelled your e-mail correctly?" (especially since they'll probably just say "of *course* I spelled my e-mail correctly", without actually checking it).
+Put in other words, **there's absolutely no reason why a webapp should allow a user to register with the email "@gmali.com", or "@gmail.ocm", or anything else that's clearly wrong.** And we shouldn't add friction to the signup process by asking them "are you sure you spelled your email correctly?" (especially since they'll probably just say "of *course* I spelled my email correctly", without actually checking it).
 
 
 ### Are there tests for this code? How can I know it won't false-positive something legitimate, like "@something.co"? ###
@@ -71,9 +71,9 @@ They should all pass. Let me know if they don't.
 Alternately, if there's a test case that we haven't written yet, just open up an "issue" here on the GitHub repo, and we'll get right on it. Or, if you want to write your own and send a pull request, that's cool, too.
 
 
-### What failing e-mails does Fat Fingers catch? ###
+### What failing emails does Fat Fingers catch? ###
 
-It's a moderately-long list, mostly centered around the kinds of e-mail providers that have lots of users (and lots of users prone to typo their e-mail providers' names). Your 'Yaho's, your 'Hotmali's, your 'Gmial's. That sort of thing.
+It's a moderately-long list, mostly centered around the kinds of email providers that have lots of users (and lots of users prone to typo their email providers' names). Your 'Yaho's, your 'Hotmali's, your 'Gmial's. That sort of thing.
 
 Also, just about every incorrect permutation of '.cm', '.cmo', 'comn', and all the other invalid TLDs that you think "there's no way someone could *possibly* type that in" (and yet, they do).
 

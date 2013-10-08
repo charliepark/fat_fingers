@@ -85,7 +85,7 @@ There are a few: .cm .et .ne .om. Basically, TLDs that are one character off of 
 
 To be honest, though, they're far more likely to be typos than actual, valid addresses. For example, **it's more likely your users are mis-typing ".com" than that they're Cameroonian (".cm").**
 
-Fat Fingers elegantly handles all of the TLDs recognized by Google as "[generic TLDs](https://support.google.com/webmasters/answer/1347922?hl=en)", including .co, .fm, .io, and .me. In fact, apart from those four we listed at the top of this section, Fat Fingers gracefully handles every other TLD.
+Fat Fingers elegantly handles all of the TLDs recognized by Google as "[generic TLDs](https://support.google.com/webmasters/answer/1347922?hl=en)", including .co, .fm, .io, and .me. In fact, apart from those four we listed at the top of this section (.cm, .et, .ne, .om), Fat Fingers gracefully handles every TLD in the world.
 
 ### A quick note for users running this on Ruby < 1.9
 

@@ -139,7 +139,8 @@ class StringTest < MiniTest::Unit::TestCase
     @bad_comcast = [
       "test@comacast.net",
       "test@comcastn.et",
-      "test@comcat.net"
+      "test@comcat.net",
+      "test@cmcast.net"
       ]
 
     @good_sbcglobal = "test@sbcglobal.net"
@@ -175,13 +176,65 @@ class StringTest < MiniTest::Unit::TestCase
       "test@something.cojp"
     ]
 
+    # these are actually good; mainly here to make sure
+    # that they don't trip as false-positives
+
     @good_tld_coop = "test@something.coop"
     @bad_tld_coop = ["test@something.coop"]
+
+    @good_aol_com = "test@aol.com"
+    @bad_aol_com = ["test@aol.com"]
+
+    @good_att_net = "test@att.net"
+    @bad_att_net = ["test@att.net"]
+
+    @good_facebook_com = "test@facebook.com"
+    @bad_facebook_com = ["test@facebook.com"]
+
+    @good_gmx_com = "test@gmx.com"
+    @bad_gmx_com = ["test@gmx.com"]
+
+    @good_googlemail_com = "test@googlemail.com"
+    @bad_googlemail_com = ["test@googlemail.com"]
+
+    @good_hotmail_co_uk = "test@hotmail.co.uk"
+    @bad_hotmail_co_uk = ["test@hotmail.co.uk"]
+
+    @good_live_com = "test@live.com"
+    @bad_live_com = ["test@live.com"]
+
+    @good_mac_com = "test@mac.com"
+    @bad_mac_com = ["test@mac.com"]
+
+    @good_mail_com = "test@mail.com"
+    @bad_mail_com = ["test@mail.com"]
+
+    @good_me_com = "test@me.com"
+    @bad_me_com = ["test@me.com"]
+
+    @good_msn_com = "test@msn.com"
+    @bad_msn_com = ["test@msn.com"]
+
+    @good_verizon_net = "test@verizon.net"
+    @bad_verizon_net = ["test@verizon.net"]
+
+    @good_yahoo_co_uk = "test@yahoo.co.uk"
+    @bad_yahoo_co_uk = ["test@yahoo.co.uk"]
+
+    @good_ymail_com = "test@ymail.com"
+    @bad_ymail_com = ["test@ymail.com"]
+
+    @good_mil = "test@army.mil"
+    @bad_mil = ["test@army.mil"]
+
 
   end
 
   def cases
-    ["gmail", "intl_gmail", "yahoo", "hotmail", "com", "net", "org", "comcast", "sbcglobal", "gm", "tld_cn", "tld_co", "random_co", "tld_gr", "tld_jp", "tld_coop", "gmail_with_dots", "gmail_with_plus"]
+    [ "gmail", "intl_gmail", "yahoo", "hotmail", "com", "net", "org", "comcast", "sbcglobal", "gm", "tld_cn", "tld_co", 
+      "random_co", "tld_gr", "tld_jp", "tld_coop", "gmail_with_dots", "gmail_with_plus", "aol_com", "att_net", "facebook_com",
+      "gmx_com", "googlemail_com", "hotmail_co_uk", "live_com", "mac_com", "mail_com", "me_com", "msn_com", "verizon_net", 
+      "yahoo_co_uk", "ymail_com", "mil"]
   end
 
   def test_that_emails_get_fixed

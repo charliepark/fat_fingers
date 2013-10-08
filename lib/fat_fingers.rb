@@ -83,7 +83,7 @@ protected
   end
 
   def clean_up_other_providers
-    gsub(/@coma*cas*t\.net/,"@comcast.net").
+    gsub(/@co*ma*cas*t\.net/,"@comcast.net").
     gsub(/@sbcglob(a|l)\.net/, "@sbcglobal.net")
   end
 

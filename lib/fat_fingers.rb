@@ -58,12 +58,12 @@ protected
   end
 
   def clean_up_funky_coms
-    gsub(/\.c*(c|i|l|m|n|o|p|0)*m+o*$/,".com").
+    gsub(/\.c*(c|ci|coi|l|m|n|o|op|cp|0)*m+o*$/,".com").
     gsub(/\.(c|v|x)o+(m|n)$/,".com")
   end
 
   def clean_up_funky_nets
-    gsub(/\.n*t*e*t*$/, ".net")
+    gsub(/\.(nte*|n*et*)$/, ".net")
   end
 
   def clean_up_funky_orgs

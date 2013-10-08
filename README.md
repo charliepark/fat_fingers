@@ -79,6 +79,13 @@ Also, just about every incorrect permutation of '.cm', '.cmo', 'comn', and all t
 
 To see the full list of what Fat Fingers will catch, check out [the tests](https://github.com/charliepark/fat_fingers/blob/master/test/test_fat_fingers.rb).
 
+### Are there any TLDs that Fat Fingers doesn't handle elegantly?
+
+There are a few: .cm .et .ne .om. Fat Fingers will conver those to .net and .com addresses.
+
+Basically, the ones that are far more likely to be typos than actual, valid addresses. For example, **it's more likely your users are mis-typing ".com" than that they're Cameroonian (".cm").
+
+Fat Fingers elegantly handles all of the TLDs recognized by Google as "[generic TLDs](https://support.google.com/webmasters/answer/1347922?hl=en)", including .co, .fm, .io, and .me. In fact, apart from those four we listed at the top of this section, Fat Fingers gracefully handles every other TLD.
 
 ### A quick note for users running this on Ruby < 1.9
 

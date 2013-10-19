@@ -1,9 +1,11 @@
 Fat Fingers
 ===========
 
-Oooh, hey. It's now a gem!
+Fat Fingers is a Ruby gem that gives you an easy, tested method that fixes email typos.
 
-Fat Fingers is a gem. It gives you an easy, tested method that fixes email typos. (When "joe@gmail.com" enters in "joe@gmal.cmo", fix it for him.)
+As an example: A user with the email "joe@gmail.com" accidentally enters in "joe@gmal.cmo". Fat Fingers will fix it automatically.
+
+Fat Fingers is concerned with incorrectly-entered data (email provider names, TLDs), *not* with evaluating whether a particular domain is valid, or whether a particular email address is legitimate. (That is, it's focused on fixing the part that comes after the "@" in the email address.) It works really well for helping you — and your users — when they accidentally type something in wrong.
 
 ### How to install it:
 
@@ -28,9 +30,7 @@ Or, maybe, you'd prefer the four-line version:
     > "joe@gmali.cm".clean_up_typoed_email
         => "joe@gmail.com"
 
-## What's this all about, then?
-
-### Let's help our users!
+### Why I made Fat Fingers
 
 Just a few minutes ago, I got a "message failed to deliver" email. Why? The user had entered in their email address incorrectly. something@something.cm. I mean, really. "cm"? Whatever. It happens.
 
@@ -47,8 +47,6 @@ All you need to do is attach that method to the user's email address before you 
 For example, when you're creating a new user, you'll clean up the email with something like this:
 
     @user.email = params[:email].clean_up_typoed_email
-
-    
 
 
 ### Aren't we disenfranchising users with this?
@@ -73,7 +71,7 @@ Alternately, if there's a test case that we haven't written yet, just open up an
 
 ### What failing emails does Fat Fingers catch? ###
 
-It's a moderately-long list, mostly centered around the kinds of email providers that have lots of users (and lots of users prone to typo their email providers' names). Your 'Yaho's, your 'Hotmali's, your 'Gmial's. That sort of thing.
+It's a moderately-long list, mostly centered around the kinds of email providers that have lots of users (and domains that seem to get mis-typed frequently). Your 'Yaho's, your 'Hotmali's, your 'Gmial's. That sort of thing.
 
 Also, just about every incorrect permutation of '.cm', '.cmo', 'comn', and all the other invalid TLDs that you think "there's no way someone could *possibly* type that in" (and yet, they do).
 

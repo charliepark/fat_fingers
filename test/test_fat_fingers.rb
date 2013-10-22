@@ -216,7 +216,7 @@ class StringTest < MiniTest::Unit::TestCase
     @bad_msn_com = ["test@msn.com"]
 
     @good_verizon_net = "test@verizon.net"
-    @bad_verizon_net = ["test@verizon.net"]
+    @bad_verizon_net = ["test@verizon.net", "test@verion.net", "test@verzon.net"]
 
     @good_yahoo_co_uk = "test@yahoo.co.uk"
     @bad_yahoo_co_uk = ["test@yahoo.co.uk"]

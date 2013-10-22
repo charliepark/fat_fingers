@@ -84,7 +84,8 @@ protected
 
   def clean_up_other_providers
     gsub(/@co*ma*cas*t\.net/,"@comcast.net").
-    gsub(/@sbcglob(a|l)\.net/, "@sbcglobal.net")
+    gsub(/@sbcglob(a|l)\.net/, "@sbcglobal.net").
+    gsub(/@veri*z*on\.net/,"@verizon.net")
   end
 
   def add_a_period_if_they_forgot_it

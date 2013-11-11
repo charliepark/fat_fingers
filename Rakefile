@@ -22,6 +22,10 @@ task :gem do
       line = '  s.version      = "'+@new_version+'"'+"\n"
       puts "Upgrading gem to version "+@new_version
     end
+    if line.include?("s.date")
+      line = '  s.date         = "'+Time.now.to_s[0..9]+'"'+"\n"
+      puts "Upgrading date to "+Time.now.to_s[0..9]     
+    end
     lines << line
   end
   file.close

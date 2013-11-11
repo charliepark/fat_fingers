@@ -3,7 +3,7 @@ Fat Fingers
 
 Fat Fingers is a Ruby gem that gives you an easy, tested method that fixes email typos.
 
-As an example: A user with the email "joe@gmail.com" accidentally enters in "joe@gmal.cmo". Fat Fingers will fix it automatically.
+As an example: A user with the email "joe@gmail.com" accidentally enters in "joe@gmal.cmo", Fat Fingers will fix it automatically.
 
 Fat Fingers is concerned with incorrectly-entered data (email provider names, TLDs), *not* with evaluating whether a particular domain is valid, or whether a particular email address is legitimate. (That is, it's focused on fixing the part that comes after the "@" in the email address.) It works really well for helping you — and your users — when they accidentally type something in wrong.
 
@@ -32,7 +32,7 @@ Or, maybe, you'd prefer the four-line version:
 
 ### Why I made Fat Fingers
 
-Just a few minutes ago, I got a "message failed to deliver" email. Why? The user had entered in their email address incorrectly. something@something.cm. I mean, really. "cm"? Whatever. It happens.
+I run a SaaS webapp. Just a few minutes ago, I got a "message failed to deliver" email. Why? The user had entered in their email address incorrectly. something@something.cm. I mean, really. "cm"? Whatever. It happens.
 
 So, now there's a bit of a hassle, where I have to fix their email in the system, then re-initiate whatever process sent them that email.
 

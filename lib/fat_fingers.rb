@@ -75,7 +75,7 @@ protected
   end
 
   def clean_up_hotmail
-    gsub(/@h(o|p)*y*t*o*a*m*(a|i|k|l)*\./,"@hotmail.")
+    gsub(/@h(o|p)*y*t*o*a*m*t*(a|i|k|l)*\./,"@hotmail.")
   end
 
   def clean_up_yahoo

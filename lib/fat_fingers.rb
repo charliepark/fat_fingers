@@ -90,7 +90,7 @@ protected
   end
 
   def clean_up_known_coms
-    gsub(/(aol|gmail|hotmail|yahoo).co$/){|w| w+"m"}
+    gsub(/(aol|gmail|hotmail|yahoo).co$/, '\1.com')
   end
 
   def add_a_period_if_they_forgot_it

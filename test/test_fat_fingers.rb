@@ -18,7 +18,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gamil.com",
       "test@gnail.com",
       "test@gmailc.om",
-      "test.@gmail.com"
+      "test.@gmail.com",
+      "test.@gmail.co"
       ]
 
     @good_intl_gmail = "test@gmail.co.uk"
@@ -51,7 +52,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@yhooo.com",
       "test@yao.com",
       "test@yaooo.com",
-      "test@yahooc.om"
+      "test@yahooc.om",
+      "test@yahoo.co"
       ]
 
     @good_hotmail = "test@hotmail.com"
@@ -63,8 +65,17 @@ class StringTest < MiniTest::Unit::TestCase
       "test@hoymail.com",
       "test@hptmail.com",
       "test@htomali.com",
-      "test@homtail.com"
+      "test@homtail.com",
+      "test@hotmail.co"
       ]
+
+    @good_aol = "test@aol.com"
+    @bad_aol = [
+      "test@aol.co",
+      "test@aol.co",
+      "test@aol.cm"
+    ]
+
 
     @good_com = "test@something.com"
     @bad_com = [
@@ -234,7 +245,7 @@ class StringTest < MiniTest::Unit::TestCase
   end
 
   def cases
-    [ "gmail", "intl_gmail", "yahoo", "hotmail", "com", "net", "org", "comcast", "sbcglobal", "gm", "tld_cn", "tld_co", 
+    [ "gmail", "intl_gmail", "yahoo", "hotmail", "aol", "com", "net", "org", "comcast", "sbcglobal", "gm", "tld_cn", "tld_co", 
       "random_co", "tld_gr", "tld_jp", "tld_coop", "gmail_with_dots", "gmail_with_plus", "aol_com", "att_net", "facebook_com",
       "gmx_com", "googlemail_com", "hotmail_co_uk", "live_com", "mac_com", "mail_com", "me_com", "msn_com", "verizon_net", 
       "yahoo_co_uk", "ymail_com", "mil"]

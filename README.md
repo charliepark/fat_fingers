@@ -62,7 +62,7 @@ Put in other words, **there's absolutely no reason why a webapp should allow a u
 
 ### Are there tests for this code? How can I know it won't false-positive something legitimate, like "@something.co"? ###
 
-There *is* a full test suite for this code, baked right in. Over 430 tests! Just look at the [code](https://github.com/charliepark/fat_fingers/blob/master/test/test_fat_fingers.rb) and you'll see the unit tests. You can also just clone / fork the gem to your machine and run `rake` or `rake test` and the tests will run.
+There *is* a full test suite for this code, baked right in. Over 440 tests! Just look at the [code](https://github.com/charliepark/fat_fingers/blob/master/test/test_fat_fingers.rb) and you'll see the unit tests. You can also just clone / fork the gem to your machine and run `rake` or `rake test` and the tests will run.
 
 They should all pass. Let me know if they don't.
 

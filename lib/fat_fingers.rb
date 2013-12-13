@@ -25,6 +25,7 @@ class String
     clean_up_hotmail.
     clean_up_yahoo.
     clean_up_other_providers.
+    clean_up_known_coms.
     add_a_period_if_they_forgot_it
   end
 
@@ -86,6 +87,10 @@ protected
     gsub(/@co*ma*cas*t\.net/,"@comcast.net").
     gsub(/@sbcglob(a|l)\.net/, "@sbcglobal.net").
     gsub(/@veri*z*on\.net/,"@verizon.net")
+  end
+
+  def clean_up_known_coms
+    gsub(/(aol|gmail|hotmail|yahoo).co$/){|w| w+"m"}
   end
 
   def add_a_period_if_they_forgot_it

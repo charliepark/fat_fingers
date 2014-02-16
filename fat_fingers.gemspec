@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.license      = "MIT"
   s.name         = "fat_fingers"
-  s.version      = "0.1.22"
-  s.date         = "2013-12-12"
+  s.version      = "0.1.23"
+  s.date         = "2014-02-16"
   s.summary      = "Clean up e-mail strings when the user's made a typo (like 'gmail.cmo')."
   s.description  = "Makes sure users don't accidentally create an account for the wrong e-mail address. Because 'gmial' isn't actually what they meant to type. Similarly, 'yaho.com', or the strange-but-true '.c0m'. Not even making that one up. If you're concerned about false-positives, it's super-easy to check. There's only a single method. Also, it's fully-tested."
   s.author       = "Charlie Park"

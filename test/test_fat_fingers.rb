@@ -8,6 +8,7 @@ class StringTest < MiniTest::Unit::TestCase
     @good_gmail = "test@gmail.com"
     @bad_gmail = [
       "test@gmai.com",
+      "test@gmaii.com",
       "test@gmal.com",
       "test@gmaal.com",
       "test@gmil.com",
@@ -37,6 +38,28 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmail.co.um",
       "test@gmail.o.uk",
       "test@gmail.couk"
+      ]
+
+    @good_googlemail = "test@googlemail.com"
+    @bad_googlemail = [
+      "test@googlemai.com",
+      "test@googlemaii.com",
+      "test@googlemal.com",
+      "test@googlemaal.com",
+      "test@googlemil.com",
+      "test@googlemial.com",
+      "test@googlemali.com",
+      "test@googlemila.com",
+      "test@googlemaill.com",
+      "test@googleamil.com",
+      "test@googlenail.com",
+      "test@googlemailc.om",
+      "test.@googlemail.com",
+      "test.@googlemail.co",
+      "test.@gogglemaii.com",
+      "test.@gogglemail.com",
+      "test.@gogolemail.com",
+      "test.@goooglemail.com"
       ]
 
     @good_yahoo = "test@yahoo.com"
@@ -245,10 +268,10 @@ class StringTest < MiniTest::Unit::TestCase
   end
 
   def cases
-    [ "gmail", "intl_gmail", "yahoo", "hotmail", "aol", "com", "net", "org", "comcast", "sbcglobal", "gm", "tld_cn", "tld_co", 
-      "random_co", "tld_gr", "tld_jp", "tld_coop", "gmail_with_dots", "gmail_with_plus", "aol_com", "att_net", "facebook_com",
-      "gmx_com", "googlemail_com", "hotmail_co_uk", "live_com", "mac_com", "mail_com", "me_com", "msn_com", "verizon_net", 
-      "yahoo_co_uk", "ymail_com", "mil"]
+    [ "aol", "aol_com", "att_net", "com", "comcast", "facebook_com", "googlemail", "gm", "gmail", "gmail_with_dots", "gmail_with_plus", 
+      "gmx_com", "googlemail_com", "hotmail", "hotmail_co_uk", "intl_gmail", "live_com", "mac_com", "mail_com", "me_com", 
+      "mil", "msn_com", "net", "org", "random_co", "sbcglobal", "tld_cn", "tld_co", "tld_coop", "tld_gr", "tld_jp", 
+      "verizon_net", "yahoo", "yahoo_co_uk", "ymail_com" ]
   end
 
   def test_that_emails_get_fixed
@@ -273,6 +296,12 @@ class StringTest < MiniTest::Unit::TestCase
   def test_that_tlds_do_not_get_broken
     @all_tlds_fat_fingers_works_with.each do |tld|
       assert_equal "test@something.#{tld}", "test@something.#{tld}".clean_up_typoed_email
+    end
+  end
+
+  def test_the_four_obscure_tlds_fat_fingers_doesnt_work_with
+    @tlds_fat_fingers_gets_tripped_on.each do |tld|
+      refute_equal "test@something.#{tld}", "test@something.#{tld}".clean_up_typoed_email
     end
   end
 

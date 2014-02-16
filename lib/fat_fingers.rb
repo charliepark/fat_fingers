@@ -22,6 +22,7 @@ class String
     clean_up_funky_nets.
     clean_up_funky_orgs.
     clean_up_gmail.
+    clean_up_googlemail.
     clean_up_hotmail.
     clean_up_yahoo.
     clean_up_other_providers.
@@ -71,8 +72,12 @@ protected
     gsub(/\.o+g*r*g*$/, ".org") # require the o, to not false-positive .gr e-mails
   end
 
+  def clean_up_googlemail
+    gsub(/@(g(o)*)*le(n|m)*(a|i|l)+m*(a|i|k|l)*\./,"@googlemail.")
+  end
+
   def clean_up_gmail
-    gsub(/@g(n|m)*(a|i|l)+m*(a|i|l)*\./,"@gmail.")
+    gsub(/@g(n|m)*(a|i|l)+m*(a|i|k|l)*\./,"@gmail.")
   end
 
   def clean_up_hotmail
@@ -90,7 +95,7 @@ protected
   end
 
   def clean_up_known_coms
-    gsub(/(aol|gmail|hotmail|yahoo).co$/, '\1.com')
+    gsub(/(aol|googlemail|gmail|hotmail|yahoo).co$/, '\1.com')
   end
 
   def add_a_period_if_they_forgot_it

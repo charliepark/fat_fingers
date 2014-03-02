@@ -91,7 +91,7 @@ protected
   def clean_up_other_providers
     gsub(/@co*ma*cas*t\.net/,"@comcast.net").
     gsub(/@sbcglob(a|l)\.net/, "@sbcglobal.net").
-    gsub(/@veri*z*on\.net/,"@verizon.net")
+    gsub(/@ver*i*z*on\.net/,"@verizon.net")
   end
 
   def clean_up_known_coms

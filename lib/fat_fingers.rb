@@ -25,6 +25,7 @@ class String
     clean_up_googlemail.
     clean_up_hotmail.
     clean_up_yahoo.
+    clean_up_aol.
     clean_up_other_providers.
     clean_up_known_coms.
     add_a_period_if_they_forgot_it
@@ -86,6 +87,10 @@ protected
 
   def clean_up_yahoo
     gsub(/@y*a*h*a*o*\./,"@yahoo.")
+  end
+
+  def clean_up_aol
+    gsub(/@ol\./,"@aol.")
   end
 
   def clean_up_other_providers

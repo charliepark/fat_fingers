@@ -96,7 +96,8 @@ class StringTest < MiniTest::Unit::TestCase
     @bad_aol = [
       "test@aol.co",
       "test@aol.co",
-      "test@aol.cm"
+      "test@aol.cm",
+      "test@ol.com"
     ]
 
     @good_com = "test@something.com"

@@ -118,6 +118,7 @@ class StringTest < MiniTest::Unit::TestCase
       "test@something.coim",
       "test@something.cok",
       "test@something.colm",
+      "test@something.clom",
       "test@something.comj",
       "test@something.comn",
       "test@something.con",

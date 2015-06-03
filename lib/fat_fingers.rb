@@ -86,7 +86,7 @@ protected
   end
 
   def clean_up_yahoo
-    gsub(/@y*a*h*a*o*\./,"@yahoo.")
+    gsub(/(?!@ya\.)@y*a*h*a*o*\./,"@yahoo.")
   end
 
   def clean_up_aol

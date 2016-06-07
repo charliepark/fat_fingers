@@ -109,7 +109,8 @@ protected
   end
 
   def add_a_period_if_they_forgot_it
-    gsub(/([^\.])(com|org|net)$/, '\1.\2')
+    gsub(/([^\.])(com|org|net)$/, '\1.\2').
+    gsub(/(@\.)(com|org|net)$/, '.\2')
   end
 
 end

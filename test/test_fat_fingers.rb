@@ -20,6 +20,7 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gnail.com",
       "test@gmailc.om",
       "test.@gmail.com",
+      "test@gmail@com",
       "test.@gmail.co"
       ]
 

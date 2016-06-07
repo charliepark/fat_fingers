@@ -24,6 +24,7 @@ class String
     clean_up_gmail.
     clean_up_googlemail.
     clean_up_hotmail.
+    clean_up_yandex.
     clean_up_yahoo.
     clean_up_aol.
     clean_up_other_providers.
@@ -85,8 +86,12 @@ protected
     gsub(/@h(o|p)*y*t*o*a*m*t*(a|i|k|l)*\./,"@hotmail.")
   end
 
+  def clean_up_yandex
+    gsub(/@ya+\.?r+u+/,"@ya.ru")
+  end
+
   def clean_up_yahoo
-    gsub(/(?!@ya\.)@y*a*h*a*o*\./,"@yahoo.")
+    gsub(/(?!@ya\.ru)@y*a*h*a*o*\./,"@yahoo.")
   end
 
   def clean_up_aol

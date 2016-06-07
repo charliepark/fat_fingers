@@ -1,5 +1,7 @@
 class String
 
+  EMAIL_REGEXP = /.+@.+\..+/i.freeze
+
   # Internal: Check a given string for misspelled TLDs and misspelled domains from popular e-mail providers.
   #
   # Examples
@@ -12,7 +14,7 @@ class String
   #
   # Returns the cleaned String.
   def clean_up_typoed_email
-    downcase.
+    cleaned = downcase.
     remove_invalid_characters.
     fix_transposed_periods.
     remove_period_before_at_sign.
@@ -30,6 +32,7 @@ class String
     clean_up_other_providers.
     clean_up_known_coms.
     add_a_period_if_they_forgot_it
+    EMAIL_REGEXP.match(cleaned) ? cleaned : downcase
   end
 
 protected

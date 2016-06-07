@@ -254,6 +254,9 @@ class StringTest < MiniTest::Unit::TestCase
     @good_verizon_net = "test@verizon.net"
     @bad_verizon_net = ["test@verizon.net", "test@veizon.net", "test@verion.net", "test@verzon.net"]
 
+    @good_yandex = "test@ya.ru"
+    @bad_yandex = ["test@yaa.ru", "test@yaaru"]
+
     @good_yahoo_co_uk = "test@yahoo.co.uk"
     @bad_yahoo_co_uk = ["test@yahoo.co.uk"]
 
@@ -269,10 +272,10 @@ class StringTest < MiniTest::Unit::TestCase
   end
 
   def cases
-    [ "aol", "aol_com", "att_net", "com", "comcast", "facebook_com", "googlemail", "gm", "gmail", "gmail_with_dots", "gmail_with_plus", 
-      "gmx_com", "googlemail_com", "hotmail", "hotmail_co_uk", "intl_gmail", "live_com", "mac_com", "mail_com", "me_com", 
-      "mil", "msn_com", "net", "org", "random_co", "sbcglobal", "tld_cn", "tld_co", "tld_coop", "tld_gr", "tld_jp", 
-      "verizon_net", "yahoo", "yahoo_co_uk", "ymail_com" ]
+    [ "aol", "aol_com", "att_net", "com", "comcast", "facebook_com", "googlemail", "gm", "gmail", "gmail_with_dots", "gmail_with_plus",
+      "gmx_com", "googlemail_com", "hotmail", "hotmail_co_uk", "intl_gmail", "live_com", "mac_com", "mail_com", "me_com",
+      "mil", "msn_com", "net", "org", "random_co", "sbcglobal", "tld_cn", "tld_co", "tld_coop", "tld_gr", "tld_jp",
+      "verizon_net", "yandex", "yahoo", "yahoo_co_uk", "ymail_com"]
   end
 
   def test_that_emails_get_fixed

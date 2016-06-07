@@ -57,13 +57,13 @@ protected
 
   def fix_coms_with_appended_letters
     gsub(/\.com\.$/, ".com").
-    gsub(/\.com[^\.].*$/, ".com").
+    gsub(/\.com[^\.@]*$/, ".com").
     gsub(/\.co[^op]$/, ".com")
   end
 
   def clean_up_funky_coms
-    gsub(/\.c*(c|ci|coi|l|m|n|o|op|cp|0)*m+o*$/,".com").
-    gsub(/\.(c|v|x)o+(m|n)$/,".com")
+    gsub(/\.c*(c|ci|coi|l|m|n|o|op|cp|0)*m+o*$/, ".com").
+    gsub(/\.(c|v|x)o+(m|n)$/, ".com")
   end
 
   def clean_up_funky_nets

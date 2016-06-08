@@ -1,5 +1,7 @@
 class String
 
+  EMAIL_REGEXP = /.+@.+\..+/i.freeze
+
   # Internal: Check a given string for misspelled TLDs and misspelled domains from popular e-mail providers.
   #
   # Examples
@@ -12,7 +14,7 @@ class String
   #
   # Returns the cleaned String.
   def clean_up_typoed_email
-    downcase.
+    cleaned = downcase.
     remove_invalid_characters.
     fix_transposed_periods.
     remove_period_before_at_sign.
@@ -24,11 +26,13 @@ class String
     clean_up_gmail.
     clean_up_googlemail.
     clean_up_hotmail.
+    clean_up_yandex.
     clean_up_yahoo.
     clean_up_aol.
     clean_up_other_providers.
     clean_up_known_coms.
     add_a_period_if_they_forgot_it
+    EMAIL_REGEXP.match(cleaned) ? cleaned : downcase
   end
 
 protected
@@ -56,13 +60,13 @@ protected
 
   def fix_coms_with_appended_letters
     gsub(/\.com\.$/, ".com").
-    gsub(/\.com[^\.].*$/, ".com").
+    gsub(/\.com[^\.@]*$/, ".com").
     gsub(/\.co[^op]$/, ".com")
   end
 
   def clean_up_funky_coms
-    gsub(/\.c*(c|ci|coi|l|m|n|o|op|cp|0)*m+o*$/,".com").
-    gsub(/\.(c|v|x)o+(m|n)$/,".com")
+    gsub(/\.c*(c|ci|coi|l|m|n|o|op|cp|0)*m+o*$/, ".com").
+    gsub(/\.(c|v|x)o+(m|n)$/, ".com")
   end
 
   def clean_up_funky_nets
@@ -85,8 +89,12 @@ protected
     gsub(/@h(o|p)*y*t*o*a*m*t*(a|i|k|l)*\./,"@hotmail.")
   end
 
+  def clean_up_yandex
+    gsub(/@ya+\.?r+u+/,"@ya.ru")
+  end
+
   def clean_up_yahoo
-    gsub(/@y*a*h*a*o*\./,"@yahoo.")
+    gsub(/(?!@ya\.ru)@(y+a*h*a*o*|y*a*h+a*o*|y+a+h+[^.]{,3})\./,"@yahoo.")
   end
 
   def clean_up_aol
@@ -104,7 +112,8 @@ protected
   end
 
   def add_a_period_if_they_forgot_it
-    gsub(/([^\.])(com|org|net)$/, '\1.\2')
+    gsub(/([^\.])(com|org|net)$/, '\1.\2').
+    gsub(/(@\.)(com|org|net)$/, '.\2')
   end
 
 end

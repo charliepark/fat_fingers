@@ -20,6 +20,7 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gnail.com",
       "test@gmailc.om",
       "test.@gmail.com",
+      "test@gmail@com",
       "test.@gmail.co"
       ]
 
@@ -76,7 +77,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@yao.com",
       "test@yaooo.com",
       "test@yahooc.om",
-      "test@yahoo.co"
+      "test@yahoo.co",
+      "test@yahop.vom"
       ]
 
     @good_hotmail = "test@hotmail.com"
@@ -254,6 +256,9 @@ class StringTest < MiniTest::Unit::TestCase
     @good_verizon_net = "test@verizon.net"
     @bad_verizon_net = ["test@verizon.net", "test@veizon.net", "test@verion.net", "test@verzon.net"]
 
+    @good_yandex = "test@ya.ru"
+    @bad_yandex = ["test@yaa.ru", "test@yaaru"]
+
     @good_yahoo_co_uk = "test@yahoo.co.uk"
     @bad_yahoo_co_uk = ["test@yahoo.co.uk"]
 
@@ -263,16 +268,25 @@ class StringTest < MiniTest::Unit::TestCase
     @good_mil = "test@army.mil"
     @bad_mil = ["test@army.mil"]
 
+    @good_dot_com_name = "test.com@gmail.com"
+    @bad_dot_com_name = ["test.com@gmil.com"]
+
+    @good_com_name = "malcom@gmail.com"
+    @bad_com_name = ["malcom@gmil.com"]
+
+    @good_aaa = "malcom@aaa.com"
+    @bad_aaa = ["malcom@aaa.com"]
+
     @all_tlds_fat_fingers_works_with = %w(ac ad ae af ag ai al am an ao aq ar as at au aw ax az ba bb bd be bf bg bh bi bj bm bn bo br bs bt bv bw by bz ca cc cd cf cg ch ci ck cl cn co cr cs cu cv cx cy cz dd de dj dk dm do dz ec ee eg eh er es eu fi fjfk fm fo fr ga gb gd ge gf gg gh gi gl gm gn gp gq gr gs gt gu gw gy hk hm hn hr ht hu id ie il im in io iq ir is it je jm jo jp ke kg kh ki km kn kp kr kw ky kz la lb lc li lk lr ls lt lu lv ly ma mc md me mg mh mk ml mn mp mq mr ms mt mu mv mw mx my mz na nc nf ng ni nl no np nr nu nz pa pe pf pg ph pk pl pm pn pr ps pt pw py qa re ro rs ru rw sa sb sc sd se sg sh si sj sk sl sm sn so sr ss st su sv sx sy sz tc td tf tg th tj tk tl tm tn to tp tr tt tv tw tz ua ug uk us uy uz va vc ve vg vi vn vu wf ws ye yt yu za zm zw aero asia biz cat com coop info int jobs mobi museum name net org post pro tel travel xxx edu gov mil)
     @tlds_fat_fingers_gets_tripped_on = %w(cm et ne om)
 
   end
 
   def cases
-    [ "aol", "aol_com", "att_net", "com", "comcast", "facebook_com", "googlemail", "gm", "gmail", "gmail_with_dots", "gmail_with_plus", 
-      "gmx_com", "googlemail_com", "hotmail", "hotmail_co_uk", "intl_gmail", "live_com", "mac_com", "mail_com", "me_com", 
-      "mil", "msn_com", "net", "org", "random_co", "sbcglobal", "tld_cn", "tld_co", "tld_coop", "tld_gr", "tld_jp", 
-      "verizon_net", "yahoo", "yahoo_co_uk", "ymail_com" ]
+    [ "aaa", "aol", "aol_com", "att_net", "dot_com_name", "com", "com_name", "comcast", "facebook_com", "googlemail", "gm", "gmail", "gmail_with_dots", "gmail_with_plus",
+      "gmx_com", "googlemail_com", "hotmail", "hotmail_co_uk", "intl_gmail", "live_com", "mac_com", "mail_com", "me_com",
+      "mil", "msn_com", "net", "org", "random_co", "sbcglobal", "tld_cn", "tld_co", "tld_coop", "tld_gr", "tld_jp",
+      "verizon_net", "yandex", "yahoo", "yahoo_co_uk", "ymail_com"]
   end
 
   def test_that_emails_get_fixed

@@ -77,7 +77,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@yao.com",
       "test@yaooo.com",
       "test@yahooc.om",
-      "test@yahoo.co"
+      "test@yahoo.co",
+      "test@yahop.vom"
       ]
 
     @good_hotmail = "test@hotmail.com"

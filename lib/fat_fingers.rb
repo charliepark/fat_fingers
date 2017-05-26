@@ -15,7 +15,7 @@ class String
     downcase.
     remove_invalid_characters.
     fix_transposed_periods.
-    remove_period_before_at_sign.
+    remove_period_around_at_sign.
     handle_different_country_tlds.
     fix_coms_with_appended_letters.
     clean_up_funky_coms.
@@ -24,8 +24,8 @@ class String
     clean_up_gmail.
     clean_up_googlemail.
     clean_up_hotmail.
-    clean_up_yahoo.
     clean_up_aol.
+    clean_up_yahoo.
     clean_up_other_providers.
     clean_up_known_coms.
     add_a_period_if_they_forgot_it
@@ -45,8 +45,8 @@ protected
     # can't do "o.gr" => ".org", as ".gr" is a valid TLD
   end
 
-  def remove_period_before_at_sign
-    gsub(/\.*@/, "@")
+  def remove_period_around_at_sign
+    gsub(/(\.@|@\.)/, "@")
   end
 
   def handle_different_country_tlds
@@ -78,29 +78,31 @@ protected
   end
 
   def clean_up_gmail
-    gsub(/@g(n|m)*(a|i|l)+m*(a|i|k|l)*\./,"@gmail.")
+    gsub(/@g(n|m)*(a|i|l)+m*(a|i|k|l|o|u)*\./,"@gmail.")
   end
 
   def clean_up_hotmail
-    gsub(/@h(o|p)*y*t*o*a*m*t*(a|i|k|l)*\./,"@hotmail.")
+    gsub(/@h(i|o|p)*y*t*o*a*m*n*t*(a|i|k|l)*\./,"@hotmail.")
   end
 
   def clean_up_yahoo
-    gsub(/@y*a*h*a*o*\./,"@yahoo.")
+    gsub(/@(ya|yh|ua|ah)+h*a*o+\./,"@yahoo.")
   end
 
   def clean_up_aol
-    gsub(/@ol\./,"@aol.")
+    gsub(/@(ol|ao|ail)\./,"@aol.")
   end
 
   def clean_up_other_providers
-    gsub(/@co*ma*cas*t\.net/,"@comcast.net").
-    gsub(/@sbcglob(a|l)\.net/, "@sbcglobal.net").
-    gsub(/@ver*i*z*on\.net/,"@verizon.net")
+    gsub(/@co*(m|n)+a*cas*t*\./,"@comcast.").
+    gsub(/@sbc*gl*ob(a|l)l*\./, "@sbcglobal.").
+    gsub(/@ver*i*z*on\./,"@verizon.").
+    gsub(/@icl*oud\./,"@icloud.").
+    gsub(/@outl*ook*\./,"@outlook.")
   end
 
   def clean_up_known_coms
-    gsub(/(aol|googlemail|gmail|hotmail|yahoo).co$/, '\1.com')
+    gsub(/(aol|googlemail|gmail|hotmail|yahoo|icloud|outlook)\.(co|net|org)$/, '\1.com')
   end
 
   def add_a_period_if_they_forgot_it

@@ -288,6 +288,9 @@ class StringTest < MiniTest::Unit::TestCase
     @good_yahoo_co_uk = "test@yahoo.co.uk"
     @bad_yahoo_co_uk = ["test@yahoo.co.uk"]
 
+    @good_ya_ru = "test@ya.ru"
+    @bad_ya_ru = ["test@ya.ru"]
+    
     @good_ymail_com = "test@ymail.com"
     @bad_ymail_com = ["test@ymail.com"]
 
@@ -303,7 +306,7 @@ class StringTest < MiniTest::Unit::TestCase
     [ "aol", "aol_com", "att_net", "com", "comcast", "facebook_com", "googlemail", "gm", "gmail", "gmail_with_dots", "gmail_with_plus", 
       "gmx_com", "googlemail_com", "hotmail", "hotmail_co_uk", "icloud", "intl_gmail", "live_com", "mac_com", "mail_com", "me_com", 
       "mil", "msn_com", "net", "org", "outlook", "random_co", "sbcglobal", "tld_cn", "tld_co", "tld_coop", "tld_gr", "tld_jp", 
-      "verizon_net", "yahoo", "yahoo_co_uk", "ymail_com" ]
+      "verizon_net", "ya_ru", "yahoo", "yahoo_co_uk", "ymail_com" ]
   end
 
   def test_that_emails_get_fixed

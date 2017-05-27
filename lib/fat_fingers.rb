@@ -55,8 +55,9 @@ protected
   end
 
   def fix_coms_with_appended_letters
+    gsub(/\.co[mn]\.com/, ".com").
     gsub(/\.com\.$/, ".com").
-    gsub(/\.com(?!castbiz|\.).*$/, ".com"). # fix extra letters after .com as long as they're not .comcastbiz or .com.anything
+    gsub(/\.com(?!cast|\.|@).{1,3}$/, ".com"). # fix up to three extra letters after .com as long as they're not .comcast or .com.* (and as long as they're not before the @)
     gsub(/\.co[^op]$/, ".com")
   end
 

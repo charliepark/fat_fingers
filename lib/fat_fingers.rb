@@ -71,19 +71,19 @@ protected
   end
 
   def clean_up_funky_orgs
-    gsub(/\.o+g*r*g*$/, ".org") # require the o, to not false-positive .gr e-mails
+    gsub(/\.og?r?g{0,2}$/, ".org") # require the o, to not false-positive .gr e-mails
   end
 
   def clean_up_googlemail
-    gsub(/@(g(o)*)*le(n|m)*(a|i|l)+m*(a|i|k|l)*\./,"@googlemail.")
+    gsub(/@go{0,3}g{0,2}o?le?[mn]?[ail]{1,2}m?[aikl]{0,3}\./,"@googlemail.")
   end
 
   def clean_up_gmail
-    gsub(/@g(n|m)*(a|i|l)+m*(a|i|k|l|o|u)*\./,"@gmail.")
+    gsub(/@g[nm]{0,2}s?[ail]{1,2}[aiklmou]{0,3}\.(?!gov)/,"@gmail.") # match a broad variety of mispellings of gmail, but not if it's .gov
   end
 
   def clean_up_hotmail
-    gsub(/@h(i|o|p)*y*t*o*a*m*n*t*(a|i|k|l)*\./,"@hotmail.")
+    gsub(/@h(i|o|p)?y?t?o?a?m?n?t?[aikl]{1,3}l?\./,"@hotmail.")
   end
 
   def clean_up_yahoo
@@ -95,11 +95,11 @@ protected
   end
 
   def clean_up_other_providers
-    gsub(/@co*(m|n)+a*cas*t*\./,"@comcast.").
-    gsub(/@sbc*gl*ob(a|l)l*\./, "@sbcglobal.").
-    gsub(/@ver*i*z*on\./,"@verizon.").
-    gsub(/@icl*oud\./,"@icloud.").
-    gsub(/@outl*ook*\./,"@outlook.")
+    gsub(/@co?(m|n)a?cas?t{0,2}\./,"@comcast.").
+    gsub(/@sbc?gl?ob[al]{0,2}l?\./, "@sbcglobal.").
+    gsub(/@ver?i?z?on\./,"@verizon.").
+    gsub(/@icl{0,2}oud\./,"@icloud.").
+    gsub(/@outl?ook?\./,"@outlook.")
   end
 
   def clean_up_known_coms

@@ -1,4 +1,5 @@
 gem 'minitest'
+require 'minitest/test'
 require 'minitest/autorun'
 require './lib/fat_fingers.rb'
 

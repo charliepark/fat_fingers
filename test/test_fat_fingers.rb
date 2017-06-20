@@ -1,9 +1,8 @@
 gem 'minitest'
-require 'minitest/test'
 require 'minitest/autorun'
 require './lib/fat_fingers.rb'
 
-class StringTest < Minitest::Test
+class StringTest < MiniTest::Unit::TestCase
   def setup
     
     # examples of email typos that should be fixed

@@ -13,6 +13,7 @@ class String
   # Returns the cleaned String.
   def clean_up_typoed_email
     downcase.
+    remove_mailto.
     remove_invalid_characters.
     fix_transposed_periods.
     remove_period_around_at_sign.
@@ -32,7 +33,11 @@ class String
   end
 
 protected
-
+  
+  def remove_mailto
+    gsub(/\Amailto:/, "")
+  end
+  
   def remove_invalid_characters
     gsub(/(\s|\#|\'|\"|\\)*/, "").
     gsub(/(\,|\.\.)/, ".").

@@ -216,7 +216,8 @@ class StringTest < MiniTest::Unit::TestCase
           " test@something.com",
           "test@something.com ",
           "TEST@SOMETHING.COM",
-          "test@something.c9m"
+          "test@something.c9m",
+          "mailto:test@something.com"
         ]
       },
       # generic .net

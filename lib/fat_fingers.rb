@@ -33,11 +33,11 @@ class String
   end
 
 protected
-  
+
   def remove_mailto
     gsub(/\Amailto:/, "")
   end
-  
+
   def remove_invalid_characters
     gsub(/(\s|\#|\'|\"|\\)*/, "").
     gsub(/(\,|\.\.)/, ".").
@@ -68,7 +68,7 @@ protected
 
   def clean_up_funky_coms
     gsub(/\.c*(c|ci|coi|l|m|n|o|op|cp|0|9)*m+o*$/,".com").
-    gsub(/\.(c|v|x)o+(m|n)$/,".com")
+    gsub(/\.(c|v|x|f)o+(m|n)$/,".com")
   end
 
   def clean_up_funky_nets

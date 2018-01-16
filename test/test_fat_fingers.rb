@@ -195,6 +195,7 @@ class StringTest < MiniTest::Unit::TestCase
           "test@something.ocm",
           "test@something.vom",
           "test@something.xom",
+          "test@something.fom",
           "test@something.con.com",
           "test@something.com.com",
           "test@something.com'",

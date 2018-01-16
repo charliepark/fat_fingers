@@ -192,6 +192,7 @@ class StringTest < MiniTest::Unit::TestCase
           "test@something.coom",
           "test@something.copm",
           "test@something.cpm",
+          "test@something.ckm",
           "test@something.ocm",
           "test@something.vom",
           "test@something.xom",

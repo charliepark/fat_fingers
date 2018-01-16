@@ -67,7 +67,7 @@ protected
   end
 
   def clean_up_funky_coms
-    gsub(/\.c*(c|ci|coi|l|m|n|o|op|cp|0|9)*m+o*$/,".com").
+    gsub(/\.c*(c|ck|ci|coi|l|m|n|o|op|cp|0|9)*m+o*$/,".com").
     gsub(/\.(c|v|x|f)o+(m|n)$/,".com")
   end
 

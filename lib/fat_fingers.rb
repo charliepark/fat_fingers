@@ -84,7 +84,7 @@ protected
   end
 
   def clean_up_gmail
-    gsub(/@g[nm]{0,2}s?[ail]{1,2}[aiklmou]{0,3}\.(?!gov)/,"@gmail.") # match a broad variety of mispellings of gmail, but not if it's .gov
+    gsub(/@g[nm]{0,2}s?[ail]{1,2}[aiklmou]{0,3}\.(?!gov)(?!edu)/,"@gmail.") # match a broad variety of mispellings of gmail, but not if it's .gov or .edu
   end
 
   def clean_up_hotmail

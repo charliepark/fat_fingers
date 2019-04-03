@@ -106,7 +106,8 @@ class StringTest < MiniTest::Unit::TestCase
           "test@htomali.com",
           "test@homtail.com",
           "test@hotmail.co",
-          "test@hotmail.net"
+          "test@hotmail.net",
+          "test@hotmail.vcom"
         ]
       },
       # aol.com
@@ -219,7 +220,9 @@ class StringTest < MiniTest::Unit::TestCase
           "test@something.com ",
           "TEST@SOMETHING.COM",
           "test@something.c9m",
-          "mailto:test@something.com"
+          "mailto:test@something.com",
+          "test@something.vcom",
+          "test@something.xcom"
         ]
       },
       # generic .net

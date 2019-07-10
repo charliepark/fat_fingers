@@ -147,7 +147,8 @@ class StringTest < MiniTest::Unit::TestCase
         bad: [
           "test@icoud.com",
           "test@icloud.co",
-          "test@icloud.net"
+          "test@icloud.net",
+          "test@iclod.com"
         ]
       },
       # outlook.com

@@ -148,7 +148,9 @@ class StringTest < MiniTest::Unit::TestCase
           "test@icoud.com",
           "test@icloud.co",
           "test@icloud.net",
-          "test@iclod.com"
+          "test@iclod.com",
+          "test@iclud.com",
+          "test@icld.com"
         ]
       },
       # outlook.com

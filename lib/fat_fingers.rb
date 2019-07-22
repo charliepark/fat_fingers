@@ -108,7 +108,7 @@ protected
   end
 
   def clean_up_known_coms
-    gsub(/(aol|googlemail|gmail|hotmail|yahoo|icloud|outlook)\.(co|net|org)$/, '\1.com')
+    gsub(/(@aol|googlemail|@gmail|hotmail|yahoo|icloud|outlook)\.(co|net|org)$/, '\1.com')
   end
 
   def add_a_period_if_they_forgot_it

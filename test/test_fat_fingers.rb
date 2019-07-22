@@ -288,7 +288,9 @@ class StringTest < MiniTest::Unit::TestCase
       "test@ymail.com",
       "test@army.mil",
       "test@anything.comcast.com",
-      "test@anything.comcastbiz.net"
+      "test@anything.comcastbiz.net",
+      "test@dogmail.net",
+      "test@engaol.net"
     ]
 
 

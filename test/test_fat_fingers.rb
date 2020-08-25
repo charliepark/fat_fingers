@@ -278,6 +278,8 @@ class StringTest < MiniTest::Unit::TestCase
       "test@gmx.com",
       "test@gao.gov",
       "test@gial.edu",
+      "test@gial.ac.in",
+      "test@gla.gov",
       "test@googlemail.com",
       "test@something.cn",
       "test@something.com.co",

@@ -1,8 +1,10 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    concurrent-ruby (1.1.7)
     fat_fingers (0.1.12)
-    i18n (0.6.1)
+    i18n (1.8.5)
+      concurrent-ruby (~> 1.0)
     mail (2.5.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
